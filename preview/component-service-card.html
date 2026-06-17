@@ -1,0 +1,175 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components — Service card" subtitle="Numbered service tile with checklist + CTA" viewport="700x360" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Service card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg); font-family: var(--font-body); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  @property --snake-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  /* ---------- Card ---------- */
+  .service-card {
+    position: relative;
+    background: var(--bg-elev);
+    border-radius: 8px;
+    padding: 24px;
+    overflow: hidden;
+    isolation: isolate;
+    cursor: pointer;
+    transition: transform var(--dur-std) var(--ease-standard);
+  }
+  /* Snake border on the card */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--snake-angle),
+      transparent 0deg,
+      transparent 200deg,
+      rgba(105, 22, 36, 0) 230deg,
+      rgba(105, 22, 36, 0.45) 280deg,
+      var(--blood) 330deg,
+      rgba(105, 22, 36, 0.45) 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 420ms var(--ease-standard);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .service-card:hover::before {
+    opacity: 1;
+    animation: snake 4.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  @keyframes snake { to { --snake-angle: 360deg; } }
+
+  .service-card.elev { padding-top: 32px; }
+  .service-card.elev .topline {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--gradient-metal-h);
+    z-index: 4;
+  }
+
+  /* Card content */
+  .num { font-family: var(--font-display); font-size: 13px; color: var(--silver-600); letter-spacing: 0.04em; }
+  .head { display: flex; align-items: flex-start; justify-content: space-between; }
+  .icon { font-size: 22px; color: var(--ink); line-height: 1; }
+  h3 { margin: 12px 0 4px; }
+  .desc { font-size: 14px; color: var(--silver-700); line-height: 1.5; }
+  ul { margin: 16px 0 18px; padding: 0; list-style: none; font-size: 13px; }
+  ul li {
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 8px; align-items: center;
+  }
+  ul li:last-child { border-bottom: 0; }
+  ul li::before { content: ''; width: 8px; height: 1px; background: var(--silver-500); }
+
+  /* ---------- CTA button: outlined treatment, no independent hover
+     animation. The whole card is the hover target; the button is just a
+     visual cue inside it. ---------- */
+  .cta-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 18px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--blood);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 220ms var(--ease-standard);
+  }
+  /* When the parent card is hovered, soften the button's static border so
+     the snake light on the card is the only animated element. */
+  .service-card:hover .cta-btn,
+  .service-card.demo-hover .cta-btn {
+    border-color: rgba(105, 22, 36, 0.35);
+  }
+  .cta-btn .arrow { font-size: 14px; line-height: 1; display: inline-flex; }
+
+  .hint {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--silver-600);
+    text-align: center;
+    margin-top: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="service-card elev">
+      <div class="topline"></div>
+      <div class="head">
+        <span class="num">01 — Service</span>
+        <i class="ph-thin ph-file-text icon"></i>
+      </div>
+      <h3>Grant Consulting</h3>
+      <div class="desc">From eligibility to award. We draft, win, and steward federal and foundation grants.</div>
+      <ul>
+        <li>Eligibility assessment</li>
+        <li>Narrative + budget drafting</li>
+        <li>Submission &amp; post‑award support</li>
+      </ul>
+      <button class="cta-btn">Read the brief <span class="arrow">→</span></button>
+    </div>
+
+    <div class="service-card">
+      <div class="head">
+        <span class="num">04 — Service</span>
+        <i class="ph-thin ph-hard-hat icon"></i>
+      </div>
+      <h3>Construction PM</h3>
+      <div class="desc">Subcontractor coordination, compliance, and grant‑funded build oversight.</div>
+      <ul>
+        <li>Subcontractor coordination</li>
+        <li>Compliance &amp; reporting</li>
+        <li>Schedule and budget control</li>
+      </ul>
+      <button class="cta-btn">Read the brief <span class="arrow">→</span></button>
+    </div>
+  </div>
+  <div class="hint">Hover a card or its button · light snakes around the border</div>
+
+  <script>
+    // Auto-hover demo so the effect is visible in the review pane without
+    // requiring mouse motion.
+    window.addEventListener('load', () => {
+      const card = document.querySelector('.service-card');
+      card.classList.add('demo-hover');
+    });
+  </script>
+  <style>
+    .service-card.demo-hover::before { opacity: 1; animation: snake 4.2s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+  </style>
+</body>
+</html>

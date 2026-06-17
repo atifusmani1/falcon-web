@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Spacing — Radii & shadows" subtitle="4 / 8 / 12 / pill + restrained elevation" viewport="700x360" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Radii & shadows</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg); font-family: var(--font-body); color: var(--ink); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: end; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .box { width: 96px; height: 80px; background: #FBFAF7; border: 1px solid var(--border); }
+  .label { font-size: 11px; font-family: var(--font-mono); color: var(--silver-700); }
+  .shadow-sm { box-shadow: var(--shadow-sm); border-color: transparent; }
+  .shadow-md { box-shadow: var(--shadow-md); border-color: transparent; }
+  .shadow-metal { box-shadow: var(--shadow-inset-metal); background: var(--gradient-metal-v); border-color: transparent; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell"><div class="box" style="border-radius:4px;"></div><div class="label">radius‑xs · 4</div></div>
+    <div class="cell"><div class="box" style="border-radius:8px;"></div><div class="label">radius‑sm · 8</div></div>
+    <div class="cell"><div class="box" style="border-radius:12px;"></div><div class="label">radius‑md · 12</div></div>
+    <div class="cell"><div class="box" style="border-radius:999px;"></div><div class="label">radius‑pill</div></div>
+
+    <div class="cell"><div class="box shadow-sm" style="border-radius:8px;"></div><div class="label">shadow‑sm</div></div>
+    <div class="cell"><div class="box shadow-md" style="border-radius:8px;"></div><div class="label">shadow‑md</div></div>
+    <div class="cell"><div class="box shadow-metal" style="border-radius:8px;"></div><div class="label">inset‑metal</div></div>
+    <div class="cell"><div class="box" style="border-radius:8px; box-shadow: var(--shadow-focus); border-color: var(--ink);"></div><div class="label">focus ring</div></div>
+  </div>
+</body>
+</html>

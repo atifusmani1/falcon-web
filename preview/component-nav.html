@@ -1,0 +1,72 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components — Navigation" subtitle="Top nav, light + dark variants" viewport="700x200" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Navigation</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; background: var(--bg); font-family: var(--font-body); }
+  .col { display: flex; flex-direction: column; }
+  .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; }
+  .nav-light { background: var(--bone); border-bottom: 1px solid var(--border); color: var(--ink); }
+  .nav-dark  { background: var(--ink); color: var(--bone); border-bottom: 1px solid var(--border-dark); }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { height: 36px; width: auto; }
+  .brand .name { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.04em; }
+  ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 28px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .nav a {
+    text-decoration: none;
+    transition: color 180ms var(--ease-standard);
+  }
+  /* Inactive links sit one step lighter than the active page */
+  .nav-light a { color: var(--silver-600); }
+  .nav-dark  a { color: var(--silver-500); }
+  .nav-light a:hover { color: var(--ink); }
+  .nav-dark  a:hover { color: var(--bone); }
+  /* Current page: full‑strength text + slight weight bump */
+  .nav-light a.current { color: var(--ink); font-weight: 600; }
+  .nav-dark  a.current { color: var(--bone); font-weight: 600; }
+  .actions { display: flex; gap: 12px; align-items: center; }
+</style>
+</head>
+<body>
+<div class="col">
+  <div class="nav nav-light">
+    <div class="brand">
+      <img src="../assets/falcon-sigil.png" alt="">
+      <span class="name">FALCON</span>
+    </div>
+    <ul>
+      <li><a class="current">Services</a></li>
+      <li><a>About</a></li>
+      <li><a>Client Resources</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+    <div class="actions">
+      <button class="btn btn-primary" style="height:40px; padding:0 16px;">Start the engagement</button>
+    </div>
+  </div>
+  <div class="nav nav-dark">
+    <div class="brand">
+      <img src="../assets/falcon-sigil-white.png" alt="">
+      <span class="name">FALCON</span>
+    </div>
+    <ul>
+      <li><a class="current">Services</a></li>
+      <li><a>About</a></li>
+      <li><a>Client Resources</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+    <div class="actions">
+      <button class="btn btn-primary" style="height:40px; padding:0 16px;">Start the engagement</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

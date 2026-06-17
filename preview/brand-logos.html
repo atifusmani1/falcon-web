@@ -1,0 +1,149 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Brand — Logo lockups" subtitle="Outline sigil engraved into bone, ink, steel & metal" viewport="700x700" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Logo lockups</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 0; background: var(--bg); font-family: var(--font-body); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .cell {
+    padding: 28px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px;
+    min-height: 220px;
+    position: relative;
+  }
+  .cell.light { background: var(--bone); }
+  .cell.dark  { background: var(--ink); color: var(--bone); }
+  .cell.steel { background: linear-gradient(180deg, #d9d9d9 0%, #a8a8a8 100%); }
+  .cell.metal { background: var(--gradient-metal-v); }
+
+  /* Lockup (full logo + wordmark) */
+  .lockup { display: flex; align-items: center; gap: 16px; }
+  .word { display: flex; flex-direction: column; line-height: 1; }
+  .word .name { font-family: var(--font-display); font-size: 30px; letter-spacing: 0.02em; }
+  .word .tag {
+    font-family: var(--font-body); font-size: 10px;
+    font-weight: 700; letter-spacing: 0.32em;
+    text-transform: uppercase; margin-top: 6px; opacity: 0.7;
+  }
+
+  /* ---- Engraved outline marks ----
+     Outline PNG is black-on-transparent. We fade it heavily into the surface
+     and add a 1px highlight on the opposite side of where light would catch
+     to sell the "pressed into the material" illusion. */
+
+  .engraved {
+    width: 56px;
+    aspect-ratio: 727 / 560;
+    background-color: currentColor;
+    -webkit-mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+            mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+  }
+
+  /* On light surfaces: outline reads as a soft darker line, with a faint
+     white rim BELOW the line that suggests the line is recessed. */
+  .cell.light .engraved {
+    color: rgba(14, 15, 18, 0.32);
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95));
+  }
+  .cell.light .lockup .word { color: rgba(14, 15, 18, 0.78); }
+
+  /* On dark surfaces: outline reads as a very faint light line, with a thin
+     dark shadow at the top suggesting depth. */
+  .cell.dark .engraved {
+    color: rgba(244, 242, 238, 0.22);
+    filter: drop-shadow(0 -1px 0 rgba(0, 0, 0, 0.85));
+  }
+  .cell.dark .lockup .word { color: rgba(244, 242, 238, 0.85); }
+
+  /* On steel/silver: very faint, just an etched chisel mark. */
+  .cell.steel .engraved {
+    color: rgba(0, 0, 0, 0.25);
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7));
+  }
+  .cell.metal .engraved {
+    color: rgba(0, 0, 0, 0.32);
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.55));
+  }
+
+  /* Hero-scale demo: a large sigil engraved into a panel */
+  .hero-cell {
+    grid-column: 1 / -1;
+    min-height: 260px;
+    overflow: hidden;
+    background: var(--ink);
+    align-items: stretch;
+    padding: 0;
+  }
+  .hero-cell::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url('../assets/textures/noise.png');
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  .hero-engraved {
+    width: 360px; aspect-ratio: 727 / 560;
+    background-color: rgba(244, 242, 238, 0.13);
+    -webkit-mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+            mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+    filter: drop-shadow(0 -1px 0 rgba(0, 0, 0, 0.9));
+    position: absolute;
+    left: 50%; top: 50%; transform: translate(-50%, -50%);
+  }
+  .hero-cell .caption {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .caption {
+    font-family: var(--font-mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--silver-700);
+  }
+  .cell.dark .caption,
+  .hero-cell .caption { color: rgba(255,255,255,0.6); }
+
+  /* Engrave the lockup mark too (smaller) */
+  .lockup .engraved { width: 64px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell light">
+      <div class="lockup">
+        <div class="engraved"></div>
+        <div class="word"><div class="name">FALCON</div><div class="tag">Project Management</div></div>
+      </div>
+      <div class="caption">Engraved · on bone</div>
+    </div>
+
+    <div class="cell dark">
+      <div class="lockup">
+        <div class="engraved"></div>
+        <div class="word"><div class="name">FALCON</div><div class="tag">Project Management</div></div>
+      </div>
+      <div class="caption">Engraved · on ink</div>
+    </div>
+
+    <div class="cell steel">
+      <div class="engraved" style="width: 100px;"></div>
+      <div class="caption">Sigil · etched into steel</div>
+    </div>
+
+    <div class="cell metal">
+      <div class="engraved" style="width: 100px;"></div>
+      <div class="caption">Sigil · stamped into metal</div>
+    </div>
+
+    <div class="cell hero-cell">
+      <div class="hero-engraved"></div>
+      <div class="caption">Hero scale · sigil engraved into the page (used at hero only)</div>
+    </div>
+  </div>
+</body>
+</html>

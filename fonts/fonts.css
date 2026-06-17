@@ -1,0 +1,17 @@
+/*
+ * Falcon PM webfonts.
+ *
+ * Both families are served from Google Fonts. We do not bundle TTF/woff2
+ * files in the design system. If the user later needs an offline build
+ * (no network), replace this file with self-hosted @font-face declarations
+ * pointing to woff2 files placed alongside it.
+ *
+ * Substitution notice:
+ *   The original brief asked for "Aoboshi One" (display) and
+ *   "Atkinson Hyperlegible" (body). DM Sans was swapped in as the body
+ *   family at the user's direction. Both Aoboshi One and DM Sans are
+ *   available on Google Fonts — no fallback substitution needed.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Aoboshi+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500;1,9..40,700&display=swap');
+

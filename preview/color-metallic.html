@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Colors — Metallic gradients" subtitle="Polished silver: vertical, horizontal, divider" viewport="700x360" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Metallic Gradients</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg); display: flex; flex-direction: column; gap: 14px; }
+  .block { height: 80px; border-radius: 8px; box-shadow: var(--shadow-inset-metal); position: relative; display: flex; align-items: flex-end; padding: 10px 14px; }
+  .vertical { background: var(--gradient-metal-v); }
+  .horizontal { background: var(--gradient-metal-h); }
+  .divider-block { background: var(--ink); padding: 30px; display: flex; align-items: center; }
+  .divider-block hr { width: 100%; }
+  .label { font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink); background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 3px; }
+  .label-dark { color: var(--bone); background: transparent; }
+</style>
+</head>
+<body>
+  <div class="block vertical"><span class="label">Gradient · Metal V</span></div>
+  <div class="block horizontal"><span class="label">Gradient · Metal H</span></div>
+  <div class="divider-block">
+    <hr class="divider-metal" style="margin: 0;">
+  </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components — Form inputs" subtitle="Field, focused, textarea" viewport="700x460" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Form inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg); font-family: var(--font-body); }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 22px;
+  }
+  .field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .field-full { grid-column: 1 / -1; }
+  .field label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--silver-700);
+    line-height: 1;
+  }
+  .field-focused .input { border-color: var(--ink); box-shadow: var(--shadow-focus); }
+
+  /* Select styled to match .input */
+  .select-wrap { position: relative; }
+  .select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: none;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+  .select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    width: 10px; height: 10px;
+    border-right: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="field">
+      <label>Name</label>
+      <input class="input" value="Catelyn Stark" />
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input class="input" placeholder="you@org.com" />
+    </div>
+    <div class="field">
+      <label>Phone</label>
+      <input class="input" placeholder="(415) 555‑5555" />
+    </div>
+    <div class="field field-focused">
+      <label>Project type</label>
+      <div class="select-wrap">
+        <select class="input select">
+          <option>Grant Consulting</option>
+          <option>General PM</option>
+          <option>Tech Projects</option>
+          <option>Construction PM</option>
+          <option>Other / not sure</option>
+        </select>
+      </div>
+    </div>
+    <div class="field field-full">
+      <label>Message</label>
+      <textarea class="input" placeholder="Tell us about the engagement…">We need to submit a Build America application by Q3.</textarea>
+    </div>
+  </div>
+</body>
+</html>

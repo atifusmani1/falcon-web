@@ -1,0 +1,6 @@
+/* ============================================================
+   Falcon Project Management — Design System entry point
+   Consumers link this ONE file. It pulls in fonts + tokens.
+   ============================================================ */
+
+@import url('./colors_and_type.css');

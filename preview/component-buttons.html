@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components — Buttons" subtitle="Outlined — snake border on hover, no fill" viewport="700x240" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg); font-family: var(--font-body); }
+  .col { display: flex; flex-direction: column; gap: 18px; }
+  .strip {
+    display: flex; gap: 12px;
+    align-items: center;
+    padding: 16px 18px;
+    border-radius: 8px;
+  }
+  .strip-light { background: var(--bg-elev); border: 1px solid var(--border); }
+  .strip-dark  { background: var(--ink); }
+  .legend {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--silver-600);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    width: 100px;
+  }
+  .strip-dark .legend { color: var(--silver-400); }
+  .ph { font-size: 18px; line-height: 1; }
+</style>
+</head>
+<body>
+  <div class="col">
+    <div class="strip strip-light">
+      <span class="legend">On light</span>
+      <button class="btn btn-primary">Start the engagement <i class="ph-thin ph-arrow-right ph"></i></button>
+      <button class="btn btn-secondary">Read the brief</button>
+      <button class="btn btn-ghost">Cancel</button>
+    </div>
+    <div class="strip strip-dark">
+      <span class="legend">On dark</span>
+      <button class="btn btn-primary">Send the signal <i class="ph-thin ph-arrow-right ph"></i></button>
+      <button class="btn btn-on-dark">View services</button>
+    </div>
+  </div>
+  <div style="font-family: var(--font-mono); font-size: 10px; color: var(--silver-600); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 14px; text-align: center;">
+    No background fill · snake border on hover
+  </div>
+</body>
+</html>

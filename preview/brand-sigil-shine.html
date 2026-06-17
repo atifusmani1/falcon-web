@@ -1,0 +1,155 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Brand — Sigil shine" subtitle="3D y‑axis rotation with a clean single‑highlight shine" viewport="700x360" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Sigil shine (outline)</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body {
+    margin: 0; padding: 0;
+    background:
+      radial-gradient(ellipse 65% 75% at 22% 28%, #1d1e25 0%, transparent 62%),
+      radial-gradient(ellipse 55% 65% at 78% 72%, #181a20 0%, transparent 60%),
+      radial-gradient(ellipse 90% 55% at 50% 50%, #15161b 0%, transparent 70%),
+      #0B0C0F;
+    font-family: var(--font-body);
+    overflow: hidden;
+    min-height: 360px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  body::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 50%, rgba(180,180,180,0.04), transparent 70%),
+      url('../assets/textures/noise.png');
+    background-blend-mode: screen;
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .stage {
+    position: relative;
+    width: 100%; height: 360px;
+    display: flex; align-items: center; justify-content: center;
+    perspective: 1400px;
+    perspective-origin: 50% 50%;
+  }
+
+  .sigil-3d {
+    position: relative;
+    width: 340px;
+    aspect-ratio: 727 / 560;
+    transform-style: preserve-3d;
+    /* Rotation axis runs along y=4x (tilted ~14° from vertical) so the bird
+       wobbles slightly diagonally as it turns. */
+    transform: rotate3d(1, 4, 0, var(--ry, 0deg));
+    will-change: transform;
+  }
+
+  /* Ground shadow */
+  .sigil-3d::after {
+    content: '';
+    position: absolute;
+    left: 50%; bottom: -28px;
+    width: 60%; height: 14px;
+    transform: translateX(-50%) scaleX(var(--shadow-scale, 1));
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.5), transparent 70%);
+    filter: blur(8px);
+  }
+
+  /* ---- The mark itself is the OUTLINE, treated as a thin metal inlay. ---- */
+
+  /* Base inlay color — a faint silver line that nearly disappears into the
+     dark surface; it reads only when the shine catches it. */
+  .outline-base {
+    position: absolute; inset: 0;
+    background-color: rgba(232, 232, 232, 0.13);
+    -webkit-mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+            mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.75));
+  }
+
+  /* The clean shine — a single bright highlight that sweeps across the line.
+     Masked to the outline so the highlight only appears within the line itself. */
+  .outline-shine {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg,
+        transparent 0%,
+        transparent calc(var(--shine-x, 0.5) * 100% - 14%),
+        rgba(255, 255, 255, 0.85) calc(var(--shine-x, 0.5) * 100%),
+        transparent calc(var(--shine-x, 0.5) * 100% + 14%),
+        transparent 100%
+      );
+    -webkit-mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+            mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  /* Subtle ambient lighting: the side that faces the viewer is slightly
+     brighter than the side turning away. */
+  .outline-ambient {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg,
+        rgba(255,255,255,calc(var(--ambient-l, 0) * 0.32)) 0%,
+        rgba(255,255,255,0) 45%,
+        rgba(0,0,0,0) 55%,
+        rgba(0,0,0,calc(var(--ambient-r, 0) * 0.32)) 100%
+      );
+    -webkit-mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+            mask: url('../assets/falcon-sigil-outline.png') center/contain no-repeat;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .caption {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-mono); font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.18em;
+  }
+</style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div class="sigil-3d" id="sigil">
+      <div class="outline-base"></div>
+      <div class="outline-ambient"></div>
+      <div class="outline-shine"></div>
+    </div>
+    <div class="caption">Outline sigil · scroll‑driven diagonal rotation</div>
+  </div>
+<script>
+  const sigil = document.getElementById('sigil');
+  const MAX_ANGLE = 28;
+  let t0 = performance.now();
+
+  function frame(now) {
+    const t = (now - t0) / 1000;
+    const phase = Math.sin(t * 0.55);            // -1 .. 1
+    const angle = phase * MAX_ANGLE;              // -28 .. 28 deg
+    sigil.style.setProperty('--ry', angle + 'deg');
+
+    // Shine sweeps opposite to rotation
+    const shineX = 0.5 - (angle / MAX_ANGLE) * 0.4;
+    sigil.style.setProperty('--shine-x', shineX);
+
+    const lit  = Math.max(0, -phase);
+    const dark = Math.max(0,  phase);
+    sigil.style.setProperty('--ambient-l', lit);
+    sigil.style.setProperty('--ambient-r', dark);
+
+    const shadowScale = 0.55 + 0.45 * Math.cos(angle * Math.PI / 180);
+    sigil.style.setProperty('--shadow-scale', shadowScale);
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+</script>
+</body>
+</html>

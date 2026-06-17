@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Colors — Blood accent" subtitle="The single red — CTAs only" viewport="700x200" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon PM — Color: Blood (Accent)</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg); }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .swatch {
+    border-radius: 8px; height: 130px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 14px;
+  }
+  .label { font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+  .name { font-family: var(--font-display); font-size: 18px; line-height: 1.1; }
+  .hex { font-family: var(--font-mono); font-size: 11px; opacity: 0.85; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="swatch" style="background: var(--blood); color: #fff;">
+      <div class="label">Blood</div>
+      <div>
+        <div class="name">Primary CTA</div>
+        <div class="hex">#691624</div>
+      </div>
+    </div>
+    <div class="swatch" style="background: var(--blood-bright); color: #fff;">
+      <div class="label">Blood Bright</div>
+      <div>
+        <div class="name">CTA on dark</div>
+        <div class="hex">#BF383F</div>
+      </div>
+    </div>
+    <div class="swatch" style="background: var(--blood-dark); color: #fff;">
+      <div class="label">Blood Dark</div>
+      <div>
+        <div class="name">Hover / Pressed</div>
+        <div class="hex">#4A0F19</div>
+      </div>
+    </div>
+    <div class="swatch" style="background: var(--blood-tint); color: var(--blood-dark); border: 1px solid var(--border);">
+      <div class="label">Blood Tint</div>
+      <div>
+        <div class="name">Callout BG</div>
+        <div class="hex">#ECD4D6</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
