@@ -9,7 +9,6 @@ real Falcon Project Management content before launch.
 | Field | Current placeholder | Where it appears |
 |---|---|---|
 | Founder name | Marian Wei | `src/pages/AboutPage.jsx` |
-| Year founded | 2017 | Home hero, About page |
 | Office location | Oakland, California | Footer, Contact page |
 | Email | hello@falconpm.co | Footer, Contact page |
 | Phone | (415) 555-0142 | Footer, Contact page, Contact form placeholder |

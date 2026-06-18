@@ -14,7 +14,7 @@ export default function AboutPage({ setRoute }) {
           <div className="deep-hero-row">
             <div>
               <h1>One firm.<br />A long memory.</h1>
-              <p className="lead">Falcon was founded in 2017 by Marian Wei, a former federal program officer who watched too many good projects die in submission. The firm exists to keep that from happening to yours.</p>
+              <p className="lead">Falcon was founded by Marian Wei, a former federal program officer who watched too many good projects die in submission. The firm exists to keep that from happening to yours.</p>
             </div>
             <img src="/falcon-sigil-silver.png" className="sigil" alt="" />
           </div>
