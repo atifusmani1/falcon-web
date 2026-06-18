@@ -4,7 +4,7 @@ description: Use this skill to generate well-branded interfaces and assets for F
 user-invocable: true
 ---
 
-Read the `README.md` file within this skill, and explore the other available files.
+Read `docs/DESIGN_SYSTEM.md` (the brand bible) within this skill, and explore the other available files.
 
 Key things to know up front:
 - The brand is **silver, black, and a single forged-iron red** (`#691624`). Red is for CTAs only — never decorative.

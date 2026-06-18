@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\16164\\\\Documents\\\\falcon-web\" -Force | Where-Object { $_.Name -notin @\\('node_modules','dist','.vite','.git'\\) } | Select-Object Mode, Name | Format-Table -AutoSize; \"---\"; \"src/ tree:\"; Get-ChildItem \"C:\\\\Users\\\\16164\\\\Documents\\\\falcon-web\\\\src\" -Recurse | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\16164\\\\Documents\\\\falcon-web\\\\',''\\)}} | Format-Table -AutoSize; \"---\"; \"docs/ tree:\"; Get-ChildItem \"C:\\\\Users\\\\16164\\\\Documents\\\\falcon-web\\\\docs\" | Select-Object Name | Format-Table -AutoSize; \"---\"; \"public/ tree:\"; Get-ChildItem \"C:\\\\Users\\\\16164\\\\Documents\\\\falcon-web\\\\public\" | Select-Object Name | Format-Table -AutoSize)"
+    ]
+  }
+}
