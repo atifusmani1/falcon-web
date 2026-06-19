@@ -21,14 +21,14 @@ export default function AboutPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-dark">
         <div className="wrap about-grid">
           <div>
             <div className="eyebrow eyebrow-blood" style={{ color: 'var(--blood)' }}>The story</div>
             <h2 className="mt-4">Why we keep the watch.</h2>
-            <p className="mt-5">Most projects do not fail because the work is hard. They fail because no one is holding the schedule, the budget, and the scope at the same time. We are that party.</p>
-            <p>Marian spent eleven years inside federal programs at HUD and EPA. She read 600+ grants from the reviewer's chair before she ever wrote one. That perspective — what a funder actually wants — is the difference between a polished application and a funded one.</p>
-            <p>Falcon now operates as a partnership of five senior PMs. We do not subcontract delivery. The person on the kickoff call is the person on the close-out call.</p>
+            <p className="mt-5" style={{ color: 'var(--silver-400)'}}>Most projects do not fail because the work is hard. They fail because no one is holding the schedule, the budget, and the scope at the same time. We are that party.</p>
+            <p style={{ color: 'var(--silver-400)'}}> Marian spent eleven years inside federal programs at HUD and EPA. She read 600+ grants from the reviewer's chair before she ever wrote one. That perspective — what a funder actually wants — is the difference between a polished application and a funded one.</p>
+            <p style={{ color: 'var(--silver-400)'}}>Falcon now operates as a partnership of five senior PMs. We do not subcontract delivery. The person on the kickoff call is the person on the close-out call.</p>
           </div>
           <div>
             <div className="eyebrow">Credentials</div>
@@ -88,7 +88,7 @@ export default function AboutPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-dark">
         <div className="wrap">
           <SectionHead
             eyebrow="Witnesses"

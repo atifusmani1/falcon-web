@@ -32,7 +32,7 @@ export default function ClientResourcesPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-dark">
         <div className="wrap">
           <div className="stats-row">
             <Stat value="$4.2M" label="Recent HUD CDBG award" />
@@ -66,7 +66,7 @@ export default function ClientResourcesPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-dark">
         <div className="wrap" style={{ maxWidth: 880 }}>
           <SectionHead
             eyebrow="Questions"
@@ -79,7 +79,9 @@ export default function ClientResourcesPage({ setRoute }) {
                   <span>{f.q}</span>
                   <Icon name={open === i ? 'minus' : 'plus'} size={20} />
                 </div>
-                {open === i && <div className="a mt-3">{f.a}</div>}
+                <div className={`a-wrap ${open === i ? 'is-open' : ''}`}>
+                  <div className="a-inner">{f.a}</div>
+                </div>
               </div>
             ))}
           </div>

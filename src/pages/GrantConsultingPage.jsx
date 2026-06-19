@@ -26,7 +26,7 @@ export default function GrantConsultingPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-bone">
         <div className="wrap">
           <SectionHead
             eyebrow="What's included"
@@ -50,7 +50,7 @@ export default function GrantConsultingPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section section-bone" style={{ background: 'var(--bone-2)' }}>
+      <section className="section section-dark">
         <div className="wrap">
           <SectionHead
             eyebrow="Grant types"
@@ -76,7 +76,7 @@ export default function GrantConsultingPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-bone">
         <div className="wrap">
           <SectionHead
             eyebrow="Process"

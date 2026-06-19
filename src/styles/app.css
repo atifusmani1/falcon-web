@@ -354,6 +354,7 @@ a { color: inherit; text-decoration: none; }
   font-size: var(--text-3xl);
   margin-top: var(--space-3);
   margin-bottom: var(--space-3);
+  color: var(--ink);
 }
 .service-card .desc { color: var(--silver-700); font-size: 15px; flex: 1; }
 .service-card .arrow { margin-top: var(--space-5); display: inline-flex; align-items: center; gap: 8px; color: var(--blood); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; }
@@ -499,6 +500,25 @@ a { color: inherit; text-decoration: none; }
 .mt-6 { margin-top: var(--space-6); }
 .mt-7 { margin-top: var(--space-7); }
 .eyebrow-blood { color: var(--blood); }
+
+.a-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.a-wrap.is-open {
+  grid-template-rows: 1fr;
+}
+
+.a-inner {
+  overflow: hidden; /* required — keeps content clipped while collapsed */
+  color: var(--silver-500);
+  padding-top: var(--space-2);
+}
+
+.a-inner { overflow: hidden; opacity: 0; transition: opacity 0.3s ease; }
+.a-wrap.is-open .a-inner { opacity: 1; }
 
 /* ---------- Accessibility ---------- */
 .sr-only {
