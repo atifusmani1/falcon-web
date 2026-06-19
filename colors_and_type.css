@@ -24,8 +24,8 @@
   --silver-800:   #3F4045;
   --silver-900:   #2C2D31;
 
-  --blood:        #691624;
-  --blood-bright: #BF383F;
+  --blood:        #99191f;
+  --blood-bright: #c72d34;
   --blood-dark:   #4A0F19;
   --blood-tint:   #ECD4D6;
 
@@ -329,6 +329,7 @@ small, .small {
 .btn-primary {
   color: #fff;
   background: var(--blood);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .btn-primary::after { border-color: transparent; }
 .btn-primary:hover { color: #fff; background: var(--blood-dark); }
@@ -336,11 +337,13 @@ small, .small {
 
 .btn-secondary {
   color: var(--ink);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .btn-secondary:hover { color: var(--ink); }
 
 .btn-ghost {
   color: var(--ink);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .btn-ghost::after { opacity: 0; }
 .btn-ghost:hover { background: var(--bone-2); }
@@ -362,7 +365,8 @@ small, .small {
 .hero .btn-primary,
 .cta-banner .btn-primary {
   color: #fff;
-  background: var(--blood-bright);
+  background: var(--blood);
+  transition: background 0.1s ease, color 0.1s ease;
 }
 .btn-on-dark-surface .btn-primary:hover,
 .strip-dark .btn-primary:hover,
@@ -371,7 +375,7 @@ small, .small {
 .hero .btn-primary:hover,
 .cta-banner .btn-primary:hover {
   color: #fff;
-  background: var(--blood);
+  background: var(--blood-dark);
 }
 .btn-on-dark-surface .btn-primary::after,
 .strip-dark .btn-primary::after,

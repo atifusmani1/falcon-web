@@ -62,7 +62,7 @@ function HomePage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-dark">
         <div className="wrap">
           <SectionHead
             eyebrow="Services"
