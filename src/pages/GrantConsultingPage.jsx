@@ -13,7 +13,7 @@ export default function GrantConsultingPage({ setRoute }) {
           <div className="deep-hero-row">
             <div>
               <h1>Grants, drafted to be won.</h1>
-              <p className="lead">Eligibility, narrative, budget, submission, and post-award stewardship. We have secured $8M+ for over 40 nonprofits since 2017.</p>
+              <p className="lead">Eligibility, narrative, budget, submission, and post-award stewardship. We have secured $8M+ for over 40 nonprofits.</p>
               <div className="actions" style={{ marginTop: 32, display: 'flex', gap: 12 }}>
                 <button className="btn btn-primary" onClick={() => setRoute('contact')}>
                   Discuss a grant <Icon name="arrow-right" size={16} />

@@ -32,7 +32,6 @@ export default function HomePage({ setRoute }) {
           <img className="hero-sigil-shine" src="/falcon-sigil-outline.png" alt="" />
         </div>
         <div className="wrap-wide hero-content">
-          <div className="eyebrow hero-eyebrow">Falcon Project Management · Est. 2017</div>
           <h1>We manage the projects others cannot afford to lose.</h1>
           <p className="lead">Grant consulting, general PM, technology delivery, and construction oversight — for nonprofits, public agencies, and mission-driven private clients.</p>
           <div className="actions">
