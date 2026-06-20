@@ -6,6 +6,7 @@ import Testimonial from '../components/Testimonial.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import Footer from '../components/Footer.jsx';
+import { FalconScene } from '../components/FalconScene';
 import { SERVICES } from '../data/services.js';
 
 export default function HomePage({ setRoute }) {
@@ -25,12 +26,17 @@ export default function HomePage({ setRoute }) {
 
   return (
     <div className="page page-fade-enter">
+      
       <a href="#main" className="skip-link">Skip to main content</a>
-      <section className="hero" id="main" aria-label="Introduction">
-        <div className="hero-sigil-wrap" aria-hidden="true">
-          <img className="hero-sigil-img" src="/falcon-sigil-outline.png" alt="" />
-          <img className="hero-sigil-shine" src="/falcon-sigil-outline.png" alt="" />
-        </div>
+      <section className="hero" id="main" aria-label="Introduction" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', z: '2' }}>
+         <div style={{
+            position: 'absolute', inset: 0, zIndex: 0,
+            background: 'radial-gradient( #351d1d, #120e0e, #2d0000)',
+            backgroundSize: '300% 200%',
+            animation: 'gradientShift 15s ease infinite',
+            opacity: 0.6,
+          }} />
+        <FalconScene />
         <div className="wrap-wide hero-content">
           <h1>We manage the projects others cannot afford to lose.</h1>
           <p className="lead">Grant consulting, general PM, technology delivery, and construction oversight — for nonprofits, public agencies, and mission-driven private clients.</p>
@@ -43,7 +49,7 @@ export default function HomePage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section section-bone">
+      <section className="section section-dark">
         <div className="wrap">
           <hr className="divider-metal" style={{ margin: '0 0 64px' }} />
           <div className="stats-row">
@@ -55,7 +61,7 @@ export default function HomePage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section section-dark">
+      <section className="section section-bone">
         <div className="wrap">
           <SectionHead
             eyebrow="Services"

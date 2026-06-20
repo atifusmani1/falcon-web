@@ -39,6 +39,7 @@ export default function App() {
 
   return (
     <>
+      
       <Nav route={route} setRoute={setRoute} navState={navState} />
       <Routes>
         <Route path="/" element={<HomePage setRoute={setRoute} />} />
