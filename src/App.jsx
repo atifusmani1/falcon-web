@@ -6,6 +6,7 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import GrantConsultingPage from './pages/GrantConsultingPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import ClientResourcesPage from './pages/ClientResourcesPage.jsx';
+import MosqueSecurityInitiativePage from './pages/MosqueSecurityInitiativePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import PrivacyPage from './pages/PrivacyPage.jsx';
 import { useRoute } from './lib/useRoute.js';
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="/services/construction-pm" element={<ServicesPage setRoute={setRoute} />} />
         <Route path="/about" element={<AboutPage setRoute={setRoute} />} />
         <Route path="/resources" element={<ClientResourcesPage setRoute={setRoute} />} />
+        <Route path="/mosque-security-initiative" element={<MosqueSecurityInitiativePage setRoute={setRoute} />} />
         <Route path="/contact" element={<ContactPage setRoute={setRoute} />} />
         <Route path="/privacy" element={<PrivacyPage setRoute={setRoute} />} />
         <Route path="*" element={<HomePage setRoute={setRoute} />} />

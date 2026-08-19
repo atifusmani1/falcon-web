@@ -39,7 +39,7 @@ export default function HomePage({ setRoute }) {
         <FalconScene />
         <div className="wrap-wide hero-content">
           <h1>We manage the projects others cannot afford to lose.</h1>
-          <p className="lead">Grant consulting, general PM, technology delivery, and construction oversight — for nonprofits, public agencies, and mission-driven private clients.</p>
+          <p className="lead">Grant consulting and general project management for nonprofits, public agencies, and mission-driven organizations — including technical and construction project delivery.</p>
           <div className="actions">
             <button className="btn btn-primary" onClick={() => setRoute('contact')}>
               Start the engagement <Icon name="arrow-right" size={16} />
@@ -52,11 +52,10 @@ export default function HomePage({ setRoute }) {
       <section className="section section-dark">
         <div className="wrap">
           <hr className="divider-metal" style={{ margin: '0 0 64px' }} />
-          <div className="stats-row">
-            <Stat value="$8M+" label="Grant capital secured" />
+          <div className="stats-row stats-row-3">
+            <Stat value="$7M+" label="Grant capital secured" />
             <Stat value="40+" label="Nonprofits served" />
-            <Stat value="12" label="Active engagements" />
-            <Stat value="100%" label="On-schedule delivery" blood />
+            <Stat value="100%" label="Grant success to date" blood />
           </div>
         </div>
       </section>

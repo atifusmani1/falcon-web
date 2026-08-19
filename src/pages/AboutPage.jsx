@@ -1,6 +1,7 @@
 import Icon from '../components/Icon.jsx';
 import Stat from '../components/Stat.jsx';
 import SectionHead from '../components/SectionHead.jsx';
+import Hero from '../components/Hero.jsx';
 import Testimonial from '../components/Testimonial.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Footer from '../components/Footer.jsx';
@@ -8,18 +9,11 @@ import Footer from '../components/Footer.jsx';
 export default function AboutPage({ setRoute }) {
   return (
     <div className="page page-fade-enter">
-      <section className="deep-hero">
-        <div className="wrap deep-hero-inner">
-          <div className="crumbs">About Falcon</div>
-          <div className="deep-hero-row">
-            <div>
-              <h1>One firm.<br />A long memory.</h1>
-              <p className="lead">Falcon was founded by Marian Wei, a former federal program officer who watched too many good projects die in submission. The firm exists to keep that from happening to yours.</p>
-            </div>
-            <img src="/falcon-sigil-silver.png" className="sigil" alt="" />
-          </div>
-        </div>
-      </section>
+      <Hero
+        crumbs="About Falcon"
+        title={<>One firm.<br />A long memory.</>}
+        lead="Falcon was founded by Shaheen Nassar — Founder, Executive Director, and Lead Project Manager — who brings 8+ years of nonprofit project management experience and 5 years of construction grant experience to high-stakes, large-budget, multi-stakeholder projects."
+      />
 
       <section className="section section-dark">
         <div className="wrap about-grid">
@@ -27,26 +21,31 @@ export default function AboutPage({ setRoute }) {
             <div className="eyebrow eyebrow-blood" style={{ color: 'var(--blood)' }}>The story</div>
             <h2 className="mt-4">Why we keep the watch.</h2>
             <p className="mt-5" style={{ color: 'var(--silver-400)'}}>Most projects do not fail because the work is hard. They fail because no one is holding the schedule, the budget, and the scope at the same time. We are that party.</p>
-            <p style={{ color: 'var(--silver-400)'}}> Marian spent eleven years inside federal programs at HUD and EPA. She read 600+ grants from the reviewer's chair before she ever wrote one. That perspective — what a funder actually wants — is the difference between a polished application and a funded one.</p>
+            <p style={{ color: 'var(--silver-400)'}}>Shaheen brings 8+ years of nonprofit project management experience and 5 years of construction grant experience — high-stakes, large-budget, multi-stakeholder work where the margin for error is thin. That is the standard every Falcon engagement is held to.</p>
             <p style={{ color: 'var(--silver-400)'}}>Falcon now operates as a partnership of five senior PMs. We do not subcontract delivery. The person on the kickoff call is the person on the close-out call.</p>
           </div>
           <div>
             <div className="eyebrow">Credentials</div>
             <ul className="cred-list mt-4">
               {[
-                ['shield-check', 'PMP — Project Management Institute', '2014'],
-                ['shield-check', 'Certified Grant Writer (GPC)', '2016'],
-                ['shield-check', 'OSHA 30 — Construction', '2019'],
-                ['shield-check', 'Federal Acquisition Certification (FAC-P/PM)', '2020'],
-                ['shield-check', 'PROSCI Change Management', '2022'],
-              ].map(([i, t, y]) => (
+                ['graduation-cap', 'Bachelor of Arts in Sociology'],
+                ['shield-check', 'PMP — Project Management Institute'],
+                ['shield-check', 'Certified ScrumMaster (CSM)'],
+                ['shield-check', 'Certified Scrum Product Owner (CSPO)'],
+                ['shield-check', 'Certified Agile Facilitator (CAF)'],
+              ].map(([i, t]) => (
                 <li key={t}>
                   <Icon name={i} size={20} />
                   <span>{t}</span>
-                  <span style={{ color: 'var(--silver-600)', fontSize: 13 }}>{y}</span>
                 </li>
               ))}
             </ul>
+
+            <div className="eyebrow mt-7">Capabilities</div>
+            <p className="mt-4" style={{ color: 'var(--silver-400)' }}>Agile, Waterfall, and hybrid delivery. Technical PM, stakeholder engagement, contractor coordination, and client-facing delivery.</p>
+
+            <div className="eyebrow mt-7">Grant specialty</div>
+            <p className="mt-4" style={{ color: 'var(--silver-400)' }}>Nonprofit security grant consulting — management and administration, application support, compliance, and implementation.</p>
           </div>
         </div>
       </section>

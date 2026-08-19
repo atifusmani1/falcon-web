@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Icon from '../components/Icon.jsx';
 import Stat from '../components/Stat.jsx';
 import SectionHead from '../components/SectionHead.jsx';
+import Hero from '../components/Hero.jsx';
 import Testimonial from '../components/Testimonial.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Footer from '../components/Footer.jsx';
@@ -19,18 +20,11 @@ export default function ClientResourcesPage({ setRoute }) {
 
   return (
     <div className="page page-fade-enter">
-      <section className="deep-hero">
-        <div className="wrap deep-hero-inner">
-          <div className="crumbs">Client Resources</div>
-          <div className="deep-hero-row">
-            <div>
-              <h1>What clients ask, before they ask.</h1>
-              <p className="lead">Results from active engagements, answers to the questions we hear most, and the practical things you need to know before working with Falcon.</p>
-            </div>
-            <img src="/falcon-sigil-silver.png" className="sigil" alt="" />
-          </div>
-        </div>
-      </section>
+      <Hero
+        crumbs="Client Resources"
+        title="What clients ask, before they ask."
+        lead="Results from active engagements, answers to the questions we hear most, and the practical things you need to know before working with Falcon."
+      />
 
       <section className="section section-dark">
         <div className="wrap">
