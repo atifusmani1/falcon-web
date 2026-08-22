@@ -9,7 +9,7 @@ real Falcon Project Management content before launch.
 | Field | Status | Where it appears |
 |---|---|---|
 | Founder name | ✅ Resolved — Shaheen Nassar | `src/pages/AboutPage.jsx` |
-| Office location | ⚠️ Still placeholder — Oakland, California | Footer, Contact page |
+| Office location | ✅ Removed — generated placeholder, no real office to list | Footer, Contact page |
 | Email | ✅ Resolved — fpmsocal@gmail.com | Footer, Contact page |
 | Phone | ✅ Resolved — (951) 546-8224 | Footer, Contact page, Contact form placeholder |
 | Partner count | ⚠️ Still placeholder — 5 senior partners | About stats |

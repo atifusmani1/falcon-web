@@ -128,13 +128,6 @@ export default function ContactPage({ setRoute }) {
                 <div className="ci-value">(951) 546-8224</div>
               </div>
             </div>
-            <div className="ci-item">
-              <Icon name="map-pin" size={24} />
-              <div>
-                <div className="ci-label">Office</div>
-                <div className="ci-value">Oakland, California</div>
-              </div>
-            </div>
             <div className="ci-item" style={{ background: 'var(--ink)', color: 'var(--bone)', border: 0 }}>
               <Icon name="clock" size={24} style={{ color: 'var(--silver-300)' }} />
               <div>

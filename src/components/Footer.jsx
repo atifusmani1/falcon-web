@@ -33,7 +33,6 @@ export default function Footer({ setRoute }) {
             <ul>
               <li><a>fpmsocal@gmail.com</a></li>
               <li><a>(951) 546-8224</a></li>
-              <li><a>Oakland, CA</a></li>
             </ul>
           </div>
         </div>
