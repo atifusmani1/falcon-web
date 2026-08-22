@@ -11,14 +11,14 @@ export const SERVICES = [
     num: '02',
     icon: 'clipboard-list',
     title: 'General PM',
-    desc: 'Coordination, schedule, and budget control across multi-stakeholder engagements. We hold the line on scope.',
+    desc: 'Coordination, schedule, budget control, and management & administration across multi-stakeholder engagements. We hold the line on scope.',
   },
   {
     id: 'service-tech',
     num: '03',
     icon: 'cpu',
     title: 'Tech Projects',
-    desc: 'SSoftware delivery, security infrastructure, systems modernization, and technical project delivery. PM discipline for technical teams.',
+    desc: 'Software delivery, security infrastructure, systems modernization, and technical project delivery. PM discipline for technical teams.',
   },
   {
     id: 'service-construction',

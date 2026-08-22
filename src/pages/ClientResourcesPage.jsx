@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Icon from '../components/Icon.jsx';
-import Stat from '../components/Stat.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import Hero from '../components/Hero.jsx';
 import Testimonial from '../components/Testimonial.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Footer from '../components/Footer.jsx';
+import { TESTIMONIALS } from '../data/testimonials.js';
 
 const FAQ = [
   { q: 'How long does a typical engagement run?', a: 'Six weeks for a single grant application. Three to twelve months for ongoing PM. Construction oversight typically tracks the build duration plus 90 days closeout.' },
@@ -28,11 +28,34 @@ export default function ClientResourcesPage({ setRoute }) {
 
       <section className="section section-dark">
         <div className="wrap">
-          <div className="stats-row">
-            <Stat value="$4.2M" label="Recent HUD CDBG award" />
-            <Stat value="14 mo" label="Build delivered ahead" />
-            <Stat value="3 yr" label="Median client tenure" />
-            <Stat value="97%" label="Client retention" blood />
+          <SectionHead
+            eyebrow="Track record"
+            title="What clients can count on."
+            lead="The proof points that matter most, while we assemble the hard numbers behind them." />
+          <div className="proof-grid">
+            {[
+              {
+                title: 'Strong Track Record',
+                desc: 'Demonstrated success helping nonprofit organizations navigate competitive grant applications and secure critical funding.',
+              },
+              {
+                title: 'Persistent Grant Support',
+                desc: 'Continued support for qualifying clients through application and reapplication cycles, helping organizations strengthen submissions and pursue funding opportunities.',
+              },
+              {
+                title: 'Compliance-Focused Project Management',
+                desc: 'Grant-funded projects managed with a strong emphasis on applicable grant requirements, approved scopes of work, budgets, and administrative requirements.',
+              },
+              {
+                title: 'Extensive Contractor Network',
+                desc: 'Access to a broad network of licensed contractors and service providers to support competitive procurement and successful project execution.',
+              },
+            ].map((p) => (
+              <div key={p.title} className="proof-card">
+                <h4>{p.title}</h4>
+                <p className="mt-2">{p.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -43,19 +66,10 @@ export default function ClientResourcesPage({ setRoute }) {
             eyebrow="Said directly"
             title="What our clients say."
             lead="Quotes pulled from project closeouts and reference calls — used with permission." />
-          <div className="testimonials" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-            <Testimonial
-              quote="They held the schedule when ours fell apart. We funded the build because of it."
-              name="D. Reyes" role="Executive Director, North Bay Housing Coalition" initials="DR" />
-            <Testimonial
-              quote="Falcon writes a grant the way a senior engineer writes a tech spec. No fluff."
-              name="A. Okonkwo" role="Deputy Director, Trinity County Public Works" initials="AO" />
-            <Testimonial
-              quote="A senior PM, not a sales engineer, on day one. That is the entire pitch."
-              name="M. Hassan" role="COO, Civic Signal" initials="MH" />
-            <Testimonial
-              quote="The first grant was a long shot. We won. The second one wasn't — because they made sure of that."
-              name="L. Ferreira" role="Board Chair, Open Bay Foundation" initials="LF" />
+          <div className="testimonials">
+            {TESTIMONIALS.filter((t) => t.quote).map((t) => (
+              <Testimonial key={t.name} quote={t.quote} name={t.name} role={t.role} initials={t.initials} />
+            ))}
           </div>
         </div>
       </section>

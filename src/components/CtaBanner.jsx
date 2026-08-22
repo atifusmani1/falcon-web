@@ -7,7 +7,7 @@ export default function CtaBanner({ setRoute }) {
         <hr className="divider-metal" />
         <span className="eyebrow" style={{ color: 'var(--silver-400)' }}>Begin</span>
         <h2 className="mt-4">The watch is yours.<br />The project is ours.</h2>
-        <p className="lead">Tell us what you need delivered. We'll respond within one business day.</p>
+        <p className="lead">Tell us what you need delivered. We typically respond within one business day.</p>
         <div className="actions">
           <button className="btn btn-primary" onClick={() => setRoute('contact')}>
             Start the engagement <Icon name="arrow-right" size={16} />

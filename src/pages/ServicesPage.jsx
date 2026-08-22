@@ -30,12 +30,12 @@ export default function ServicesPage({ setRoute }) {
           <SectionHead
             eyebrow="Ideal client"
             title="Who we are best for."
-            lead="Falcon is built for clients with high stakes and complex stakeholders. Grant consulting is our specialty for nonprofits and public agencies — our broader project management services extend to private-sector clients as well." />
+            lead="Falcon is built for clients with high stakes and complex stakeholders — businesses, nonprofits, and public agencies alike. Grant consulting is our specialty for nonprofits and public agencies; project management and administration serve all three." />
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
             {[
-              ['Mission-driven nonprofits', 'Federal and foundation funding cycles. Multi-site programs.'],
+              ['Businesses', 'Infrastructure, energy transition, civic technology, and other complex, high-stakes builds.'],
+              ['Nonprofits & community organizations', 'Federal and foundation funding cycles. Multi-site programs.'],
               ['Public agencies', 'Compliance-heavy work, prevailing wage, federal reporting.'],
-              ['Mission-aligned private sector', 'Infrastructure, energy transition, civic technology.'],
             ].map(([t, d]) => (
               <div key={t} className="card">
                 <h4>{t}</h4>

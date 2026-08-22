@@ -1,5 +1,8 @@
 import Hero from '../components/Hero.jsx';
 import Footer from '../components/Footer.jsx';
+import { PARTNERS } from '../data/partners.js';
+
+const shuraCouncil = PARTNERS.find((p) => p.id === 'shura-council');
 
 export default function MosqueSecurityInitiativePage({ setRoute }) {
   return (
@@ -15,7 +18,24 @@ export default function MosqueSecurityInitiativePage({ setRoute }) {
 
       <section className="section">
         <div className="wrap">
-          <p>hello!</p>
+          <div className="eyebrow eyebrow-blood" style={{ color: 'var(--blood)' }}>In partnership with</div>
+          <div className="partners-grid mt-5" style={{ gridTemplateColumns: '1fr', maxWidth: 640 }}>
+            <div className="partner-card">
+              <a
+                className="partner-logo"
+                href={shuraCouncil.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit the ${shuraCouncil.name} website (opens in a new tab)`}
+              >
+                <img src={shuraCouncil.logo} alt={`${shuraCouncil.name} logo`} />
+              </a>
+              <div>
+                <h4>{shuraCouncil.name}</h4>
+                <p className="mt-2">{shuraCouncil.desc}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

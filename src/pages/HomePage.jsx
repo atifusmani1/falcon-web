@@ -8,6 +8,7 @@ import SectionHead from '../components/SectionHead.jsx';
 import Footer from '../components/Footer.jsx';
 import { FalconScene } from '../components/FalconScene';
 import { SERVICES } from '../data/services.js';
+import { TESTIMONIALS } from '../data/testimonials.js';
 
 export default function HomePage({ setRoute }) {
   useEffect(() => {
@@ -55,8 +56,11 @@ export default function HomePage({ setRoute }) {
           <div className="stats-row stats-row-3">
             <Stat value="$7M+" label="Grant capital secured" />
             <Stat value="40+" label="Nonprofits served" />
-            <Stat value="100%" label="Grant success to date" blood />
+            <Stat value="100%" label="Grant success to date*" blood />
           </div>
+          <p className="stats-footnote">
+            *To date, Falcon's completed grant-consulting engagements have resulted in successful grant awards for clients who completed the recommended application and reapplication process. 
+          </p>
         </div>
       </section>
 
@@ -82,12 +86,9 @@ export default function HomePage({ setRoute }) {
             title={<>The watch, in their words.</>}
             lead="Two clients on what changed when Falcon took the engagement." />
           <div className="testimonials">
-            <Testimonial
-              quote="They held the schedule when ours fell apart. We funded the build because of it."
-              name="D. Reyes" role="Executive Director, North Bay Housing Coalition" initials="DR" />
-            <Testimonial
-              quote="Falcon writes a grant the way a senior engineer writes a tech spec. Clarity, scope, no fluff."
-              name="A. Okonkwo" role="Deputy Director, Trinity County Public Works" initials="AO" />
+            {TESTIMONIALS.filter((t) => t.quote).map((t) => (
+              <Testimonial key={t.name} quote={t.quote} name={t.name} role={t.role} initials={t.initials} />
+            ))}
           </div>
         </div>
       </section>

@@ -8,7 +8,7 @@ export default function Footer({ setRoute }) {
               <img src="/falcon-sigil-white.png" alt="" />
               <span className="wm">FALCON</span>
             </div>
-            <p className="footer-tag">Watchers of the schedule. Keepers of the budget. Falcon Project Management partners with mission-driven and public-sector clients to deliver complex work on time and in scope.</p>
+            <p className="footer-tag">Watchers of the schedule. Keepers of the budget. Falcon Project Management partners with businesses, nonprofits, and public-sector clients to deliver complex work on time and in scope.</p>
           </div>
           <div>
             <h5>Services</h5>
