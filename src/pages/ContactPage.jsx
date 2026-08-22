@@ -56,7 +56,7 @@ export default function ContactPage({ setRoute }) {
       <Hero
         crumbs="Contact"
         title="Send the signal."
-        lead="Tell us what you need delivered. We will respond within one business day — most weeks, the same afternoon."
+        lead="Tell us what you need delivered. We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day."
       />
 
       <section className="section">
@@ -108,7 +108,7 @@ export default function ContactPage({ setRoute }) {
               <div className="card card-elevated" style={{ padding: 48 }}>
                 <Icon name="check-circle-2" size={36} style={{ color: 'var(--blood)' }} />
                 <h3 className="mt-4">The signal is received.</h3>
-                <p className="mt-3">We'll be in touch within one business day. If your matter is urgent, call (415) 555-0142.</p>
+                <p className="mt-3">We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day. If your matter is urgent, call (415) 555-0142.</p>
                 <button className="btn btn-secondary mt-4" onClick={reset}>Send another</button>
               </div>
             )}
@@ -139,7 +139,7 @@ export default function ContactPage({ setRoute }) {
               <Icon name="clock" size={24} style={{ color: 'var(--silver-300)' }} />
               <div>
                 <div className="ci-label" style={{ color: 'var(--silver-400)' }}>Response time</div>
-                <div className="ci-value">One business day · usually same afternoon</div>
+                <div className="ci-value" style={{ fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600 }}>We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day.</div>
               </div>
             </div>
           </div>

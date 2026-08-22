@@ -11,7 +11,7 @@ export default function GrantConsultingPage({ setRoute }) {
       <Hero
         crumbs="Services · 01 Grant Consulting"
         title="Grants, drafted to be won."
-        lead="Eligibility, narrative, budget, submission, and post-award stewardship. We have secured $8M+ for over 40 nonprofits."
+        lead="Eligibility, narrative, budget, submission, and post-award stewardship. We have secured $7M+ for over 40 nonprofits."
         primaryLabel="Discuss a grant"
         onPrimary={() => setRoute('contact')}
         onSecondary={() => setRoute('services')}
@@ -93,7 +93,7 @@ export default function GrantConsultingPage({ setRoute }) {
       <section className="section section-dark">
         <div className="wrap">
           <div className="stats-row">
-            <Stat value="$8M+" label="Capital secured to date" />
+            <Stat value="$7M+" label="Capital secured to date" />
             <Stat value="40+" label="Nonprofits served" />
             <Stat value="68%" label="Win rate on submitted" blood />
             <Stat value="6 wk" label="Median engagement" />

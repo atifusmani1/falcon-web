@@ -6,13 +6,13 @@ const SERVICE_LINKS = [
   { id: "service-pm", num: "02", label: "General PM" },
   { id: "service-tech", num: "03", label: "Tech Projects" },
   { id: "service-construction", num: "04", label: "Construction PM" },
-  { id: "mosque-security", num: "05", label: "Mosque Security Initiative" },
 ];
 
 const NAV_ITEMS = [
   { id: "services", label: "Services", dropdown: SERVICE_LINKS },
   { id: "about", label: "About" },
   { id: "resources", label: "Client Resources" },
+  { id: "mosque-security", label: "Mosque Security Initiative", highlight: true },
   { id: "contact", label: "Contact" },
 ];
 
@@ -60,10 +60,10 @@ export default function Nav({ route, setRoute, navState }) {
               <li key={it.id}>
                 <button
                   className={
-                    route === it.id ||
+                    (route === it.id ||
                     (it.id === "services" && isServicesActive)
-                      ? "active"
-                      : ""
+                      ? "active "
+                      : "") + (it.highlight ? "nav-link-highlight" : "")
                   }
                   onClick={() => setRoute(it.id)}
                   aria-haspopup={it.dropdown ? "true" : undefined}
@@ -74,6 +74,7 @@ export default function Nav({ route, setRoute, navState }) {
                       : undefined
                   }
                 >
+                  {it.highlight && <Icon name="shield-check" size={14} />}
                   {it.label}
                 </button>
                 {it.dropdown && (
@@ -160,9 +161,13 @@ export default function Nav({ route, setRoute, navState }) {
             ) : (
               <button
                 key={it.id}
-                className={route === it.id ? "active" : ""}
+                className={
+                  (route === it.id ? "active " : "") +
+                  (it.highlight ? "nav-link-highlight" : "")
+                }
                 onClick={() => goMobile(it.id)}
               >
+                {it.highlight && <Icon name="shield-check" size={18} />}
                 {it.label}
               </button>
             ),
