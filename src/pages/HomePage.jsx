@@ -1,15 +1,31 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import Icon from '../components/Icon.jsx';
 import Stat from '../components/Stat.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
+import Testimonial from '../components/Testimonial.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import Footer from '../components/Footer.jsx';
-import { FalconScene } from '../components/FalconScene';
 import { SERVICES } from '../data/services.js';
 import { TESTIMONIALS } from '../data/testimonials.js';
 
+// Code-split the three.js hero scene — it's decorative, and pulling it into
+// the main bundle was the biggest single cost to first paint.
+const FalconScene = lazy(() =>
+  import('../components/FalconScene').then((mod) => ({ default: mod.FalconScene }))
+);
+
 export default function HomePage({ setRoute }) {
+  // Delay even requesting the FalconScene chunk until the browser is idle,
+  // so it never competes with the initial paint for bandwidth or CPU.
+  const [showScene, setShowScene] = useState(false);
+  useEffect(() => {
+    const schedule = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
+    const cancel = window.cancelIdleCallback || clearTimeout;
+    const id = schedule(() => setShowScene(true));
+    return () => cancel(id);
+  }, []);
+
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
@@ -36,7 +52,11 @@ export default function HomePage({ setRoute }) {
             animation: 'gradientShift 15s ease infinite',
             opacity: 0.6,
           }} />
-        <FalconScene />
+        {showScene && (
+          <Suspense fallback={null}>
+            <FalconScene />
+          </Suspense>
+        )}
         <div className="wrap-wide hero-content">
           <h1>We manage the projects others cannot afford to lose.</h1>
           <p className="lead">Grant consulting and general project management for nonprofits, public agencies, and mission-driven organizations — including technical and construction project delivery.</p>
@@ -57,7 +77,7 @@ export default function HomePage({ setRoute }) {
             <Stat value="40+" label="Nonprofits served" />
             <Stat value="100%" label="Grant Success to Date*" blood />
           </div>
-          <p className="small mt-6" style={{ maxWidth: '80ch', color: 'var(--silver-500)' }}>
+          <p className="small mt-6" style={{ maxWidth: '80ch', marginLeft: 'auto', marginRight: 'auto', color: 'var(--silver-500)', textAlign: 'center'}}>
             *To date, Falcon's completed grant-consulting engagements have resulted in successful grant awards for clients who completed the recommended application and reapplication process. This figure reflects completed application cycles and excludes active applications, pending submissions, and clients currently preparing for or awaiting a future reapplication cycle. Historical performance does not guarantee future grant awards.
           </p>
         </div>

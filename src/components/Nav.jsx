@@ -65,7 +65,10 @@ export default function Nav({ route, setRoute, navState }) {
                       ? "active"
                       : ""
                   }
-                  onClick={() => setRoute(it.id)}
+                  onClick={(e) => {
+                    setRoute(it.id);
+                    e.currentTarget.blur();
+                  }}
                   aria-haspopup={it.dropdown ? "true" : undefined}
                   aria-current={
                     route === it.id ||
@@ -82,7 +85,10 @@ export default function Nav({ route, setRoute, navState }) {
                       <button
                         key={s.id}
                         role="menuitem"
-                        onClick={() => setRoute(s.id)}
+                        onClick={(e) => {
+                          setRoute(s.id);
+                          e.currentTarget.blur();
+                        }}
                       >
                         <span className="sub-num">{s.num}</span>
                         {s.label}

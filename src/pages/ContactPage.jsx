@@ -136,14 +136,14 @@ export default function ContactPage({ setRoute }) {
           </div>
           <div className="contact-info">
             <div className="ci-item">
-              <Icon name="mail" size={24} />
+              <Icon name="mail" size={24} style={{ color: 'var(--silver-300)' }}/>
               <div>
                 <div className="ci-label">Email</div>
                 <div className="ci-value">fpmsocal@gmail.com</div>
               </div>
             </div>
             <div className="ci-item">
-              <Icon name="phone" size={24} />
+              <Icon name="phone" size={24} style={{ color: 'var(--silver-300)' }}/>
               <div>
                 <div className="ci-label">Direct line</div>
                 <div className="ci-value">(951) 546-8224</div>
