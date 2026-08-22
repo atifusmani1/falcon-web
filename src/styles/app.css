@@ -486,6 +486,8 @@ a { color: inherit; text-decoration: none; }
 }
 .partners-row { display: flex; align-items: center; justify-content: center; gap: var(--space-8); flex-wrap: wrap; }
 
+.ideal-client-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
 .sector-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-top: var(--space-5); }
 .sector-tile { padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-sm); text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
 .sector-tile .lab { font-size: 13px; font-weight: 700; }
@@ -725,6 +727,7 @@ a { color: inherit; text-decoration: none; }
   .included-grid,
   .partners-grid,
   .footer-inner { grid-template-columns: 1fr; gap: var(--space-5); }
+  .ideal-client-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .footer-bottom { flex-direction: column; gap: var(--space-3); }
   .founder-portrait-frame { aspect-ratio: 16 / 10; max-width: 360px; margin: 0 auto; }
 

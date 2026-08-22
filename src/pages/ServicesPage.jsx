@@ -31,7 +31,7 @@ export default function ServicesPage({ setRoute }) {
             eyebrow="Ideal client"
             title="Who we are best for."
             lead="Falcon is built for clients with high stakes and complex stakeholders — businesses, nonprofits, and public agencies alike. Grant consulting is our specialty for nonprofits and public agencies; project management and administration serve all three." />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+          <div className="ideal-client-grid">
             {[
               ['Businesses', 'Infrastructure, energy transition, civic technology, and other complex, high-stakes builds.'],
               ['Nonprofits & community organizations', 'Federal and foundation funding cycles. Multi-site programs.'],
