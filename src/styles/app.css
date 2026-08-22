@@ -380,13 +380,15 @@ a { color: inherit; text-decoration: none; }
 .section-head-row h2 { font-size: var(--text-4xl); line-height: 1.05; }
 .section-head-row .lead { color: var(--silver-700); }
 
-.about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-9); align-items: start; }
 .founder-name { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--bone); }
 .founder-grid { display: grid; grid-template-columns: 300px 1fr; gap: var(--space-8); align-items: start; }
 .founder-portrait { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 22%; border-radius: var(--radius-sm); }
+.about-grid { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: var(--space-9); align-items: start; }
 .cred-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-3); }
 .cred-list li { padding: var(--space-3) 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 24px 1fr auto; gap: var(--space-3); align-items: center; }
 .cred-list li:last-child { border-bottom: 0; }
+
+
 
 .partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); margin-top: var(--space-5); }
 .partner-card {
@@ -415,6 +417,60 @@ a { color: inherit; text-decoration: none; }
 .proof-card { border-left: 2px solid var(--blood); padding: var(--space-2) var(--space-5); }
 .proof-card h4 { font-size: var(--text-lg); color: var(--blood-bright); }
 .proof-card p { color: var(--silver-400); font-size: 15px; }
+
+
+/* Founder portrait — dedicated column, never overlapping bio text or
+   headings. Swap the placeholder for a real <img> once the approved
+   photo is supplied; do not AI-generate or retouch a substitute. */
+.founder-portrait { width: 100%; }
+.founder-portrait-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-dark-strong);
+  background: var(--ink-2);
+  color: var(--silver-500);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  text-align: center;
+  padding: var(--space-5);
+  font-size: 13px;
+}
+.founder-portrait-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm); }
+
+/* ---------- Our Partners ---------- */
+.partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); align-items: start; }
+.partner-card { display: flex; flex-direction: column; gap: var(--space-2); }
+.partner-card-logo-only { align-items: center; justify-content: center; min-height: 120px; }
+.partner-logo-link { display: inline-flex; align-items: center; }
+.partner-logo-link img { max-height: 64px; max-width: 100%; width: auto; }
+.partner-card-logo-only .partner-logo-link img { max-height: 88px; }
+.partner-logo-placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 48px;
+  padding: 0 var(--space-4);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--silver-700);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---------- Mosque Security Initiative — Falcon/Shura Council blend ----------
+   Beige/green tones approximate the Shura Council identity described in the
+   revision checklist; swap for their exact brand hex values once supplied. */
+.mosque-partner-band {
+  background: #F1ECE0;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, var(--ink) 0%, var(--blood) 30%, #C9BFA0 65%, #4B6B4F 100%) 1;
+  padding: var(--space-6) 0;
+}
+.partners-row { display: flex; align-items: center; justify-content: center; gap: var(--space-8); flex-wrap: wrap; }
 
 .sector-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-top: var(--space-5); }
 .sector-tile { padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-sm); text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
@@ -647,10 +703,12 @@ a { color: inherit; text-decoration: none; }
   .testimonials,
   .contact-grid,
   .about-grid,
+  .partners-grid,
   .included-grid,
   .partners-grid,
   .footer-inner { grid-template-columns: 1fr; gap: var(--space-5); }
   .footer-bottom { flex-direction: column; gap: var(--space-3); }
+  .founder-portrait-frame { aspect-ratio: 16 / 10; max-width: 360px; margin: 0 auto; }
 
   .founder-grid { grid-template-columns: 1fr; gap: var(--space-5); }
   .founder-portrait { max-width: 280px; margin: 0 auto; }

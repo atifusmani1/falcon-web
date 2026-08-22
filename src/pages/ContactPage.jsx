@@ -1,8 +1,7 @@
-import { useState } from "react";
-import Icon from "../components/Icon.jsx";
-import Hero from "../components/Hero.jsx";
-import Footer from "../components/Footer.jsx";
-import { submitContactInquiry } from "../services/contact.js";
+import { useState } from 'react';
+import Icon from '../components/Icon.jsx';
+import Hero from '../components/Hero.jsx';
+import Footer from '../components/Footer.jsx';
 
 const INITIAL_FORM = {
   name: "",
@@ -25,8 +24,20 @@ export default function ContactPage({ setRoute }) {
     setSubmitting(true);
     setError(null);
     try {
-      await submitContactInquiry(form);
-      setSubmitted(true);
+      const response = await fetch("https://formspree.io/f/xnjyykwj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error("Formspree rejected the submission.");
+      }
     } catch (err) {
       setError("Submission failed. Please try again or call us directly.");
     } finally {
@@ -45,7 +56,7 @@ export default function ContactPage({ setRoute }) {
       <Hero
         crumbs="Contact"
         title="Send the signal."
-        lead="We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day."
+        lead="Tell us what you need delivered. We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day."
       />
 
       <section className="section">
@@ -55,45 +66,22 @@ export default function ContactPage({ setRoute }) {
               <form className="contact-form" onSubmit={onSubmit}>
                 <div className="row-2">
                   <div>
-                    <label>Name</label>
-                    <input
-                      className="input"
-                      required
-                      value={form.name}
-                      onChange={upd("name")}
-                      placeholder="Your name"
-                    />
+                    <label htmlFor="contact-name">Name</label>
+                    <input id="contact-name" className="input" name="name" required value={form.name} onChange={upd('name')} placeholder="Your name" />
                   </div>
                   <div>
-                    <label>Email</label>
-                    <input
-                      className="input"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={upd("email")}
-                      placeholder="you@org.com"
-                    />
+                    <label htmlFor="contact-email">Email</label>
+                    <input id="contact-email" className="input" type="email" name="email" required value={form.email} onChange={upd('email')} placeholder="you@org.com" />
                   </div>
                 </div>
                 <div className="row-2">
                   <div>
-                    <label>Phone</label>
-                    <input
-                      className="input"
-                      value={form.phone}
-                      onChange={upd("phone")}
-                      placeholder="(415) 555-0142"
-                    />
+                    <label htmlFor="contact-phone">Phone</label>
+                    <input id="contact-phone" className="input" name="phone" value={form.phone} onChange={upd('phone')} placeholder="(951) 546-8224" />
                   </div>
                   <div>
-                    <label>Project type</label>
-                    <select
-                      className="input"
-                      value={form.projectType}
-                      onChange={upd("projectType")}
-                      style={{ appearance: "none", cursor: "pointer" }}
-                    >
+                    <label htmlFor="contact-project-type">Project type</label>
+                    <select id="contact-project-type" className="input" name="projectType" value={form.projectType} onChange={upd('projectType')} style={{ appearance: 'none', cursor: 'pointer' }}>
                       <option>Grant Consulting</option>
                       <option>General PM</option>
                       <option>Tech Projects</option>
@@ -103,15 +91,8 @@ export default function ContactPage({ setRoute }) {
                   </div>
                 </div>
                 <div>
-                  <label>Message</label>
-                  <textarea
-                    className="input"
-                    required
-                    rows="6"
-                    value={form.message}
-                    onChange={upd("message")}
-                    placeholder="Tell us about the engagement — timeline, stakes, what good looks like."
-                  />
+                  <label htmlFor="contact-message">Message</label>
+                  <textarea id="contact-message" className="input" name="message" required rows="6" value={form.message} onChange={upd('message')} placeholder="Tell us about the engagement — timeline, stakes, what good looks like." />
                 </div>
                 {error && (
                   <div
@@ -148,13 +129,8 @@ export default function ContactPage({ setRoute }) {
                   style={{ color: "var(--blood)" }}
                 />
                 <h3 className="mt-4">The signal is received.</h3>
-                <p className="mt-3">
-                  We'll be in touch within one business day. If your matter is
-                  urgent, call (415) 555-0142.
-                </p>
-                <button className="btn btn-secondary mt-4" onClick={reset}>
-                  Send another
-                </button>
+                <p className="mt-3">We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day. If your matter is urgent, call (951) 546-8224.</p>
+                <button className="btn btn-secondary mt-4" onClick={reset}>Send another</button>
               </div>
             )}
           </div>
@@ -163,21 +139,21 @@ export default function ContactPage({ setRoute }) {
               <Icon name="mail" size={24} />
               <div>
                 <div className="ci-label">Email</div>
-                <div className="ci-value"><a href="mailto:FPMsocal@gmail.com">FPMsocal@gmail.com</a></div>
+                <div className="ci-value">fpmsocal@gmail.com</div>
               </div>
             </div>
             <div className="ci-item">
               <Icon name="phone" size={24} />
               <div>
                 <div className="ci-label">Direct line</div>
-                <div className="ci-value"><a href="tel:+19515468224">(951)-546-8224</a></div>
+                <div className="ci-value">(951) 546-8224</div>
               </div>
             </div>
-            <div className="ci-item">
-              <Icon name="map-pin" size={24} />
+            <div className="ci-item" style={{ background: 'var(--ink)', color: 'var(--bone)', border: 0 }}>
+              <Icon name="clock" size={24} style={{ color: 'var(--silver-300)' }} />
               <div>
-                <div className="ci-label">Office</div>
-                <div className="ci-value">Los Angeles Metropolitan Area</div>
+                <div className="ci-label" style={{ color: 'var(--silver-400)' }}>Response time</div>
+                <div className="ci-value" style={{ fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600 }}>We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day.</div>
               </div>
             </div>
             

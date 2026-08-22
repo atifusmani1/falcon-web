@@ -31,8 +31,8 @@ export default function Footer({ setRoute }) {
           <div>
             <h5>Watch</h5>
             <ul>
-              <li><a>hello@falconpm.co</a></li>
-              <li><a>(415) 555-0142</a></li>
+              <li><a>fpmsocal@gmail.com</a></li>
+              <li><a>(951) 546-8224</a></li>
               <li><a>Oakland, CA</a></li>
             </ul>
           </div>

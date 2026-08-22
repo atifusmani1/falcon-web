@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import Icon from '../components/Icon.jsx';
 import Stat from '../components/Stat.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
-import Testimonial from '../components/Testimonial.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import Footer from '../components/Footer.jsx';
@@ -56,10 +55,10 @@ export default function HomePage({ setRoute }) {
           <div className="stats-row stats-row-3">
             <Stat value="$7M+" label="Grant capital secured" />
             <Stat value="40+" label="Nonprofits served" />
-            <Stat value="100%" label="Grant success to date*" blood />
+            <Stat value="100%" label="Grant Success to Date*" blood />
           </div>
-          <p className="stats-footnote">
-            *To date, Falcon's completed grant-consulting engagements have resulted in successful grant awards for clients who completed the recommended application and reapplication process. 
+          <p className="small mt-6" style={{ maxWidth: '80ch', color: 'var(--silver-500)' }}>
+            *To date, Falcon's completed grant-consulting engagements have resulted in successful grant awards for clients who completed the recommended application and reapplication process. This figure reflects completed application cycles and excludes active applications, pending submissions, and clients currently preparing for or awaiting a future reapplication cycle. Historical performance does not guarantee future grant awards.
           </p>
         </div>
       </section>
@@ -68,12 +67,12 @@ export default function HomePage({ setRoute }) {
         <div className="wrap">
           <SectionHead
             eyebrow="Services"
-            title={<>Four disciplines.<br />One standard.</>}
-            lead="We work across grant, general, technical, and construction project management. The work changes; the rigor doesn't." />
+            title={<>Five disciplines.<br />One standard.</>}
+            lead="We work across grant, general, technical, construction, and mosque security project management. The work changes; the rigor doesn't." />
           <div className="service-grid">
             {SERVICES.map(s => (
               <ServiceCard key={s.id} num={s.num} icon={s.icon} title={s.title} desc={s.desc}
-                onOpen={() => setRoute(s.id === 'service-grant' ? 'service-grant' : 'services')} />
+                onOpen={() => setRoute(s.id === 'service-grant' || s.id === 'mosque-security' ? s.id : 'services')} />
             ))}
           </div>
         </div>

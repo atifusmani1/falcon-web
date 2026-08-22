@@ -6,14 +6,8 @@ import Testimonial from '../components/Testimonial.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Footer from '../components/Footer.jsx';
 import { TESTIMONIALS } from '../data/testimonials.js';
-
-const FAQ = [
-  { q: 'How long does a typical engagement run?', a: 'Six weeks for a single grant application. Three to twelve months for ongoing PM. Construction oversight typically tracks the build duration plus 90 days closeout.' },
-  { q: 'Do you take a percentage of grants you win?', a: 'No. All Falcon engagements are fixed-fee. We believe contingency arrangements create the wrong incentives — and most federal funders restrict them.' },
-  { q: 'What does a typical first month look like?', a: 'Week 1 is intake and brief. Week 2 is draft. Week 3 is the reviewer-style read and revise. Week 4 is submission prep. You will hear from us at least three times a week.' },
-  { q: 'Will I work with the same person throughout?', a: 'Yes. Falcon does not rotate staff or subcontract delivery. The senior PM on your kickoff is on your closeout.' },
-  { q: 'Do you sign NDAs?', a: 'Yes — mutual NDA is standard and we sign yours or ours.' },
-];
+import { PROOF_POINTS } from '../data/proofPoints.js';
+import { FAQ } from '../data/faq.js';
 
 export default function ClientResourcesPage({ setRoute }) {
   const [open, setOpen] = useState(0);
@@ -32,31 +26,15 @@ export default function ClientResourcesPage({ setRoute }) {
             eyebrow="Track record"
             title="What clients can count on."
             lead="The proof points that matter most, while we assemble the hard numbers behind them." />
-          <div className="proof-grid">
-            {[
-              {
-                title: 'Strong Track Record',
-                desc: 'Demonstrated success helping nonprofit organizations navigate competitive grant applications and secure critical funding.',
-              },
-              {
-                title: 'Persistent Grant Support',
-                desc: 'Continued support for qualifying clients through application and reapplication cycles, helping organizations strengthen submissions and pursue funding opportunities.',
-              },
-              {
-                title: 'Compliance-Focused Project Management',
-                desc: 'Grant-funded projects managed with a strong emphasis on applicable grant requirements, approved scopes of work, budgets, and administrative requirements.',
-              },
-              {
-                title: 'Extensive Contractor Network',
-                desc: 'Access to a broad network of licensed contractors and service providers to support competitive procurement and successful project execution.',
-              },
-            ].map((p) => (
-              <div key={p.title} className="proof-card">
-                <h4>{p.title}</h4>
-                <p className="mt-2">{p.desc}</p>
-              </div>
-            ))}
-          </div>
+        
+        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+          {PROOF_POINTS.map(p => (
+            <div key={p.title} className="card" style={{ background: 'var(--ink-2)', borderColor: 'var(--border-dark)' }}>
+              <h4 style={{ color: 'var(--bone)' }}>{p.title}</h4>
+              <p className="mt-3" style={{ color: 'var(--silver-400)', fontSize: 14 }}>{p.desc}</p>
+            </div>
+          ))}
+        </div>
         </div>
       </section>
 
@@ -65,10 +43,11 @@ export default function ClientResourcesPage({ setRoute }) {
           <SectionHead
             eyebrow="Said directly"
             title="What our clients say."
-            lead="Quotes pulled from project closeouts and reference calls — used with permission." />
-          <div className="testimonials">
-            {TESTIMONIALS.filter((t) => t.quote).map((t) => (
-              <Testimonial key={t.name} quote={t.quote} name={t.name} role={t.role} initials={t.initials} />
+            lead="Quotes shared with permission." />
+          <div className="testimonials" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            {TESTIMONIALS.map(t => (
+              <Testimonial key={t.id} quote={t.quote} name={t.name} role={t.role} initials={t.initials} />
+
             ))}
           </div>
         </div>

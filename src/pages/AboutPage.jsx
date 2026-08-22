@@ -1,27 +1,28 @@
-import Icon from "../components/Icon.jsx";
-import Stat from "../components/Stat.jsx";
-import SectionHead from "../components/SectionHead.jsx";
-import Hero from "../components/Hero.jsx";
-import CtaBanner from "../components/CtaBanner.jsx";
-import Footer from "../components/Footer.jsx";
-import { PARTNERS } from "../data/partners.js";
+import Icon from '../components/Icon.jsx';
+import Stat from '../components/Stat.jsx';
+import SectionHead from '../components/SectionHead.jsx';
+import Hero from '../components/Hero.jsx';
+import PartnerLink from '../components/PartnerLink.jsx';
+import CtaBanner from '../components/CtaBanner.jsx';
+import Footer from '../components/Footer.jsx';
+import { PARTNERS } from '../data/partners.js';
 
 export default function AboutPage({ setRoute }) {
   return (
     <div className="page page-fade-enter">
       <Hero
         crumbs="About Falcon"
-        title={
-          <>
-            One firm.
-            <br />A long memory.
-          </>
-        }
-        lead="Falcon was founded by Shaheen Nassar — Founder, Executive Director, and Lead Project Manager — who brings 8+ years of nonprofit project management experience and 5 years of construction grant experience to high-stakes, large-budget, multi-stakeholder projects."
+        title={<>Founder-led.<br />Built to deliver.</>}
+        lead="Falcon Project Management is a founder-led project management and grant consulting firm, built on nonprofit, construction-grant, technical, and client-facing delivery experience."
       />
 
       <section className="section section-dark">
         <div className="wrap about-grid">
+          <div className="founder-portrait">
+            <div className="founder-portrait-frame">
+              <img src="/shaheen-nassar.jpg" alt="Shaheen Nassar, Founder and Executive Director of Falcon Project Management" />
+            </div>
+          </div>
           <div>
             <div
               className="eyebrow eyebrow-blood"
@@ -34,11 +35,6 @@ export default function AboutPage({ setRoute }) {
               Most projects do not fail because the work is hard. They fail
               because no one is holding the schedule, the budget, and the scope
               at the same time. We are that party.
-            </p>
-            <p style={{ color: "var(--silver-400)" }}>
-              Falcon now operates as a partnership of five senior PMs. We do not
-              subcontract delivery. The person on the kickoff call is the person
-              on the close-out call.
             </p>
           </div>
           <div>
@@ -167,6 +163,7 @@ export default function AboutPage({ setRoute }) {
         </div>
       </section>
 
+
       <section className="section section-dark">
         <div className="wrap">
           <div className="stats-row">
@@ -202,8 +199,40 @@ export default function AboutPage({ setRoute }) {
               <div key={t} className="sector-tile">
                 <Icon name={i} size={24} />
                 <div className="lab">{t}</div>
+              </div>))
+            }
+          
+            </div>
+          </div>
+        </section>
+      
+
+      <section className="section section-bone" style={{ background: 'var(--bone-2)' }}>
+        <div className="wrap">
+          <SectionHead
+            eyebrow="Our Partners"
+            title="Who stands with Falcon."
+            lead="Falcon works alongside a small set of trusted organizations on initiatives that call for it." />
+          <div className="partners-grid">
+            {PARTNERS.filter(p => p.id !== 'falcon').map(p => (
+              <div key={p.id} className={'card partner-card' + (!p.showName && !p.bio ? ' partner-card-logo-only' : '')}>
+                <PartnerLink href={p.href} name={p.name} logoSrc={p.logoSrc} />
+                {p.showName && <h4 className="mt-4">{p.name}</h4>}
+                {p.bio && <p className="mt-3" style={{ color: 'var(--silver-700)', fontSize: 14 }}>{p.bio}</p>}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+
+      <section className="section section-dark">
+        <div className="wrap">
+          <div className="stats-row">
+            <Stat value="9 yr" label="In practice" />
+            <Stat value="$7M+" label="Capital secured" />
+            <Stat value="40+" label="Nonprofits served" />
+            <Stat value="5" label="Senior partners" blood />
           </div>
         </div>
       </section>
