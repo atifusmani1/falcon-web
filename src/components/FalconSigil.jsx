@@ -33,7 +33,7 @@ useFrame(() => {
 
   return (
     <mesh ref={meshRef} geometry={geometry} scale={[0.002, -0.002, 0.002]} {...props}>
-      <meshStandardMaterial color="#222222" metalness={1} roughness={0.25} />
+      <meshStandardMaterial color="#382020" metalness={1} roughness={0.25} />
     </mesh>
   );
 }

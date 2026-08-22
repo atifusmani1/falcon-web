@@ -18,7 +18,7 @@ export const SERVICES = [
     num: '03',
     icon: 'cpu',
     title: 'Tech Projects',
-    desc: 'Software delivery, security infrastructure, and systems modernization. PMO discipline for engineering teams.',
+    desc: 'Software delivery, security infrastructure, systems modernization, and technical project delivery. PM discipline for technical teams.',
   },
   {
     id: 'service-construction',
@@ -26,5 +26,12 @@ export const SERVICES = [
     icon: 'hard-hat',
     title: 'Construction PM',
     desc: 'Subcontractor coordination, compliance, and grant-funded build oversight. From groundbreaking to closeout.',
+  },
+  {
+    id: 'mosque-security',
+    num: '05',
+    icon: 'shield-check',
+    title: 'Mosque Security Initiative',
+    desc: 'Physical security assessments, hardening grants, and emergency preparedness planning built for the specific threat landscape facing Islamic centers.',
   },
 ];

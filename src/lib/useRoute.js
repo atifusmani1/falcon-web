@@ -9,6 +9,7 @@ const ROUTE_TO_PATH = {
   'service-construction': '/services/construction-pm',
   about: '/about',
   resources: '/resources',
+  'mosque-security': '/mosque-security-initiative',
   contact: '/contact',
   privacy: '/privacy',
 };

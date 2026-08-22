@@ -13,10 +13,11 @@
   --bone:         #F4F2EE;
   --bone-2:       #E9E6E0;
   --bone-3:       #DCD8D0;
+  --bone-4:       #cdc9c1dc;
 
   --silver-100:   #FAFAFA;
-  --silver-200:   #ECECEC;
-  --silver-300:   #D9D9D9;
+  --silver-200:   #ececece6;
+  --silver-300:   #d9d9d9e7;
   --silver-400:   #BFBFBF;
   --silver-500:   #9C9C9C;
   --silver-600:   #7A7A7A;
@@ -78,13 +79,13 @@
 
   /* ---- Type ---- */
   --font-display: 'Aoboshi One', 'Cinzel', 'Times New Roman', serif;
-  --font-body:    'Lora', serif, 'Times New Roman', sans-serif;
+  --font-body:    'Crimson Pro', serif, 'Times New Roman', sans-serif;
   --font-mono:    'JetBrains Mono', 'Courier New', monospace;
 
-  --text-xs:   10px;
-  --text-sm:   12px;
-  --text-md:   14px;
-  --text-lg:   16px;
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-md:   16px;
+  --text-lg:   18px;
   --text-xl:   22px;
   --text-2xl:  28px;
   --text-3xl:  36px;
@@ -117,8 +118,8 @@
   --space-11:  192px;
 
   /* ---- Radii ---- */
-  --radius-xs: 2px;
-  --radius-sm: 4px;
+  --radius-xs: 1px;
+  --radius-sm: 2px;
   --radius-md: 12px;
   --radius-pill: 999px;
 
@@ -137,7 +138,7 @@
   --dur-hero:   600ms; /* @kind other */
 
   /* ---- Layout ---- */
-  --page-max:    1200px;
+  --page-max:   1000px;
   --page-wide:   1440px;
   --nav-h:       72px;
 }
@@ -270,7 +271,7 @@ small, .small {
   border-radius: var(--radius-sm);
   color: var(--ink);
   font-family: var(--font-body);
-  font-weight: 700;
+  font-weight: 600;
   font-size: var(--text-md);
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -330,7 +331,7 @@ small, .small {
 
 /* Variants */
 .btn-primary {
-  color: #fff;
+  color: #ffffffd0;
   background: var(--blood);
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -367,7 +368,7 @@ small, .small {
 .deep-hero .btn-primary,
 .hero .btn-primary,
 .cta-banner .btn-primary {
-  color: #fff;
+  color: #ffffffea;
   background: var(--blood);
   transition: background 0.1s ease, color 0.1s ease;
 }

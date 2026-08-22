@@ -1,30 +1,21 @@
 import Icon from '../components/Icon.jsx';
 import Stat from '../components/Stat.jsx';
 import SectionHead from '../components/SectionHead.jsx';
+import Hero from '../components/Hero.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Footer from '../components/Footer.jsx';
 
 export default function GrantConsultingPage({ setRoute }) {
   return (
     <div className="page page-fade-enter">
-      <section className="deep-hero">
-        <div className="wrap deep-hero-inner">
-          <div className="crumbs">Services · 01 Grant Consulting</div>
-          <div className="deep-hero-row">
-            <div>
-              <h1>Grants, drafted to be won.</h1>
-              <p className="lead">Eligibility, narrative, budget, submission, and post-award stewardship. We have secured $8M+ for over 40 nonprofits.</p>
-              <div className="actions" style={{ marginTop: 32, display: 'flex', gap: 12 }}>
-                <button className="btn btn-primary" onClick={() => setRoute('contact')}>
-                  Discuss a grant <Icon name="arrow-right" size={16} />
-                </button>
-                <button className="btn btn-on-dark" onClick={() => setRoute('services')}>Back to services</button>
-              </div>
-            </div>
-            <img src="/falcon-sigil-silver.png" className="sigil" alt="" />
-          </div>
-        </div>
-      </section>
+      <Hero
+        crumbs="Services · 01 Grant Consulting"
+        title="Grants, drafted to be won."
+        lead="Eligibility, narrative, budget, submission, and post-award stewardship. We have secured $8M+ for over 40 nonprofits."
+        primaryLabel="Discuss a grant"
+        onPrimary={() => setRoute('contact')}
+        onSecondary={() => setRoute('services')}
+      />
 
       <section className="section section-bone">
         <div className="wrap">
