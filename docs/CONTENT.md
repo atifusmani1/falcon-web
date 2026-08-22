@@ -6,14 +6,14 @@ real Falcon Project Management content before launch.
 
 ## Firm details (used across pages and footer)
 
-| Field | Current placeholder | Where it appears |
+| Field | Status | Where it appears |
 |---|---|---|
-| Founder name | Marian Wei | `src/pages/AboutPage.jsx` |
-| Office location | Oakland, California | Footer, Contact page |
-| Email | hello@falconpm.co | Footer, Contact page |
-| Phone | (415) 555-0142 | Footer, Contact page, Contact form placeholder |
-| Partner count | 5 senior partners | About stats |
-| Years in practice | 9 yr | About stats |
+| Founder name | ✅ Resolved — Shaheen Nassar | `src/pages/AboutPage.jsx` |
+| Office location | ⚠️ Still placeholder — Oakland, California | Footer, Contact page |
+| Email | ✅ Resolved — fpmsocal@gmail.com | Footer, Contact page |
+| Phone | ✅ Resolved — (951) 546-8224 | Footer, Contact page, Contact form placeholder |
+| Partner count | ⚠️ Still placeholder — 5 senior partners | About stats |
+| Years in practice | ⚠️ Still placeholder — 9 yr | About stats |
 
 ## Statistics
 

@@ -77,7 +77,7 @@ export default function ContactPage({ setRoute }) {
                 <div className="row-2">
                   <div>
                     <label htmlFor="contact-phone">Phone</label>
-                    <input id="contact-phone" className="input" name="phone" value={form.phone} onChange={upd('phone')} placeholder="(415) 555-0142" />
+                    <input id="contact-phone" className="input" name="phone" value={form.phone} onChange={upd('phone')} placeholder="(951) 546-8224" />
                   </div>
                   <div>
                     <label htmlFor="contact-project-type">Project type</label>
@@ -108,7 +108,7 @@ export default function ContactPage({ setRoute }) {
               <div className="card card-elevated" style={{ padding: 48 }}>
                 <Icon name="check-circle-2" size={36} style={{ color: 'var(--blood)' }} />
                 <h3 className="mt-4">The signal is received.</h3>
-                <p className="mt-3">We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day. If your matter is urgent, call (415) 555-0142.</p>
+                <p className="mt-3">We will respond as soon as possible, and during most weeks, you can expect to hear from us the same day. If your matter is urgent, call (951) 546-8224.</p>
                 <button className="btn btn-secondary mt-4" onClick={reset}>Send another</button>
               </div>
             )}
@@ -118,14 +118,14 @@ export default function ContactPage({ setRoute }) {
               <Icon name="mail" size={24} />
               <div>
                 <div className="ci-label">Email</div>
-                <div className="ci-value">hello@falconpm.co</div>
+                <div className="ci-value">fpmsocal@gmail.com</div>
               </div>
             </div>
             <div className="ci-item">
               <Icon name="phone" size={24} />
               <div>
                 <div className="ci-label">Direct line</div>
-                <div className="ci-value">(415) 555-0142</div>
+                <div className="ci-value">(951) 546-8224</div>
               </div>
             </div>
             <div className="ci-item">
