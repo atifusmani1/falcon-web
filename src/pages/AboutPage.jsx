@@ -20,8 +20,7 @@ export default function AboutPage({ setRoute }) {
         <div className="wrap about-grid">
           <div className="founder-portrait">
             <div className="founder-portrait-frame">
-              <Icon name="user" size={48} />
-              <span>Founder portrait pending final approved image</span>
+              <img src="/shaheen-nassar.jpg" alt="Shaheen Nassar, Founder and Executive Director of Falcon Project Management" />
             </div>
           </div>
           <div>
@@ -63,10 +62,10 @@ export default function AboutPage({ setRoute }) {
             title="Who stands with Falcon."
             lead="Falcon works alongside a small set of trusted organizations on initiatives that call for it." />
           <div className="partners-grid">
-            {PARTNERS.map(p => (
-              <div key={p.id} className="card partner-card">
+            {PARTNERS.filter(p => p.id !== 'falcon').map(p => (
+              <div key={p.id} className={'card partner-card' + (!p.showName && !p.bio ? ' partner-card-logo-only' : '')}>
                 <PartnerLink href={p.href} name={p.name} logoSrc={p.logoSrc} />
-                <h4 className="mt-4">{p.name}</h4>
+                {p.showName && <h4 className="mt-4">{p.name}</h4>}
                 {p.bio && <p className="mt-3" style={{ color: 'var(--silver-700)', fontSize: 14 }}>{p.bio}</p>}
               </div>
             ))}
@@ -81,32 +80,6 @@ export default function AboutPage({ setRoute }) {
             <Stat value="$7M+" label="Capital secured" />
             <Stat value="40+" label="Nonprofits served" />
             <Stat value="5" label="Senior partners" blood />
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-bone" style={{ background: 'var(--bone-2)' }}>
-        <div className="wrap">
-          <SectionHead
-            eyebrow="Sectors served"
-            title="Where we have done the work."
-            lead="We turn down work outside these sectors. Specialization is the point." />
-          <div className="sector-grid">
-            {[
-              ['Nonprofit', 'heart-handshake'],
-              ['Government', 'landmark'],
-              ['Tech', 'cpu'],
-              ['Construction', 'hard-hat'],
-              ['Housing', 'home'],
-              ['Energy', 'zap'],
-              ['Education', 'graduation-cap'],
-              ['Health systems', 'stethoscope'],
-            ].map(([t, i]) => (
-              <div key={t} className="sector-tile">
-                <Icon name={i} size={24} />
-                <div className="lab">{t}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

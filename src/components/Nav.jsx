@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { id: "services", label: "Services", dropdown: SERVICE_LINKS },
   { id: "about", label: "About" },
   { id: "resources", label: "Client Resources" },
-  { id: "mosque-security", label: "Mosque Security Initiative", highlight: true },
+  { id: "mosque-security", label: "Mosque Security Initiative" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -60,10 +60,10 @@ export default function Nav({ route, setRoute, navState }) {
               <li key={it.id}>
                 <button
                   className={
-                    (route === it.id ||
+                    route === it.id ||
                     (it.id === "services" && isServicesActive)
-                      ? "active "
-                      : "") + (it.highlight ? "nav-link-highlight" : "")
+                      ? "active"
+                      : ""
                   }
                   onClick={() => setRoute(it.id)}
                   aria-haspopup={it.dropdown ? "true" : undefined}
@@ -74,7 +74,6 @@ export default function Nav({ route, setRoute, navState }) {
                       : undefined
                   }
                 >
-                  {it.highlight && <Icon name="shield-check" size={14} />}
                   {it.label}
                 </button>
                 {it.dropdown && (
@@ -161,13 +160,9 @@ export default function Nav({ route, setRoute, navState }) {
             ) : (
               <button
                 key={it.id}
-                className={
-                  (route === it.id ? "active " : "") +
-                  (it.highlight ? "nav-link-highlight" : "")
-                }
+                className={route === it.id ? "active" : ""}
                 onClick={() => goMobile(it.id)}
               >
-                {it.highlight && <Icon name="shield-check" size={18} />}
                 {it.label}
               </button>
             ),
