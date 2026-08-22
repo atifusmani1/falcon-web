@@ -2,30 +2,35 @@ import Icon from '../components/Icon.jsx';
 import Stat from '../components/Stat.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import Hero from '../components/Hero.jsx';
-import Testimonial from '../components/Testimonial.jsx';
+import PartnerLink from '../components/PartnerLink.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Footer from '../components/Footer.jsx';
+import { PARTNERS } from '../data/partners.js';
 
 export default function AboutPage({ setRoute }) {
   return (
     <div className="page page-fade-enter">
       <Hero
         crumbs="About Falcon"
-        title={<>One firm.<br />A long memory.</>}
-        lead="Falcon was founded by Shaheen Nassar — Founder, Executive Director, and Lead Project Manager — who brings 8+ years of nonprofit project management experience and 5 years of construction grant experience to high-stakes, large-budget, multi-stakeholder projects."
+        title={<>Founder-led.<br />Built to deliver.</>}
+        lead="Falcon Project Management is a founder-led project management and grant consulting firm, built on nonprofit, construction-grant, technical, and client-facing delivery experience."
       />
 
       <section className="section section-dark">
         <div className="wrap about-grid">
+          <div className="founder-portrait">
+            <div className="founder-portrait-frame">
+              <img src="/shaheen-nassar.jpg" alt="Shaheen Nassar, Founder and Executive Director of Falcon Project Management" />
+            </div>
+          </div>
           <div>
             <div className="eyebrow eyebrow-blood" style={{ color: 'var(--blood)' }}>The story</div>
             <h2 className="mt-4">Why we keep the watch.</h2>
-            <p className="mt-5" style={{ color: 'var(--silver-400)'}}>Most projects do not fail because the work is hard. They fail because no one is holding the schedule, the budget, and the scope at the same time. We are that party.</p>
-            <p style={{ color: 'var(--silver-400)'}}>Shaheen brings 8+ years of nonprofit project management experience and 5 years of construction grant experience — high-stakes, large-budget, multi-stakeholder work where the margin for error is thin. That is the standard every Falcon engagement is held to.</p>
-            <p style={{ color: 'var(--silver-400)'}}>Falcon now operates as a partnership of five senior PMs. We do not subcontract delivery. The person on the kickoff call is the person on the close-out call.</p>
-          </div>
-          <div>
-            <div className="eyebrow">Credentials</div>
+            <p className="mt-5" style={{ color: 'var(--silver-400)' }}>Shaheen Nassar is the Founder, Executive Director, and Lead Project Manager of Falcon Project Management. He brings more than eight years of nonprofit project management experience and five years of construction grant experience, with a track record of managing high-stakes, large-budget projects involving numerous stakeholders, contractors, organizational partners, and community institutions.</p>
+            <p style={{ color: 'var(--silver-400)' }}>Shaheen holds a Bachelor of Arts in Sociology and is a certified Project Management Professional (PMP) through the Project Management Institute. His professional training also includes certifications as a Certified ScrumMaster (CSM), Certified Scrum Product Owner (CSPO), and Certified Agile Facilitator (CAF). He is experienced in Agile, Waterfall, and hybrid project management methodologies and has extensive experience in technical project management, stakeholder engagement, contractor coordination, and client-facing project delivery.</p>
+            <p style={{ color: 'var(--silver-400)' }}>Through Falcon, Shaheen has developed specialized expertise in nonprofit security grant consulting and management and administration, helping vulnerable institutions identify funding opportunities, develop competitive grant applications, and navigate the complex process from initial assessment and application through grant administration and project implementation. His work is driven by a commitment to connecting community institutions with critical resources needed to strengthen their facilities, protect the people they serve, and build safer, more resilient communities.</p>
+
+            <div className="eyebrow mt-7">Credentials</div>
             <ul className="cred-list mt-4">
               {[
                 ['graduation-cap', 'Bachelor of Arts in Sociology'],
@@ -50,37 +55,18 @@ export default function AboutPage({ setRoute }) {
         </div>
       </section>
 
-      <section className="section section-dark">
-        <div className="wrap">
-          <div className="stats-row">
-            <Stat value="9 yr" label="In practice" />
-            <Stat value="$8M+" label="Capital secured" />
-            <Stat value="40+" label="Nonprofits served" />
-            <Stat value="5" label="Senior partners" blood />
-          </div>
-        </div>
-      </section>
-
       <section className="section section-bone" style={{ background: 'var(--bone-2)' }}>
         <div className="wrap">
           <SectionHead
-            eyebrow="Sectors served"
-            title="Where we have done the work."
-            lead="We turn down work outside these sectors. Specialization is the point." />
-          <div className="sector-grid">
-            {[
-              ['Nonprofit', 'heart-handshake'],
-              ['Government', 'landmark'],
-              ['Tech', 'cpu'],
-              ['Construction', 'hard-hat'],
-              ['Housing', 'home'],
-              ['Energy', 'zap'],
-              ['Education', 'graduation-cap'],
-              ['Health systems', 'stethoscope'],
-            ].map(([t, i]) => (
-              <div key={t} className="sector-tile">
-                <Icon name={i} size={24} />
-                <div className="lab">{t}</div>
+            eyebrow="Our Partners"
+            title="Who stands with Falcon."
+            lead="Falcon works alongside a small set of trusted organizations on initiatives that call for it." />
+          <div className="partners-grid">
+            {PARTNERS.filter(p => p.id !== 'falcon').map(p => (
+              <div key={p.id} className={'card partner-card' + (!p.showName && !p.bio ? ' partner-card-logo-only' : '')}>
+                <PartnerLink href={p.href} name={p.name} logoSrc={p.logoSrc} />
+                {p.showName && <h4 className="mt-4">{p.name}</h4>}
+                {p.bio && <p className="mt-3" style={{ color: 'var(--silver-700)', fontSize: 14 }}>{p.bio}</p>}
               </div>
             ))}
           </div>
@@ -89,17 +75,11 @@ export default function AboutPage({ setRoute }) {
 
       <section className="section section-dark">
         <div className="wrap">
-          <SectionHead
-            eyebrow="Witnesses"
-            title="On the record."
-            lead="Two of our clients on the day they decided to keep working with us." />
-          <div className="testimonials">
-            <Testimonial
-              quote="The first grant we did with Falcon was a long shot. We won. The second one we did with them was not a long shot — because they made sure of that."
-              name="L. Ferreira" role="Board Chair, Open Bay Foundation" initials="LF" />
-            <Testimonial
-              quote="A senior PM, not a sales engineer. That is what you get on day one. Refreshing."
-              name="M. Hassan" role="COO, Civic Signal" initials="MH" />
+          <div className="stats-row">
+            <Stat value="9 yr" label="In practice" />
+            <Stat value="$7M+" label="Capital secured" />
+            <Stat value="40+" label="Nonprofits served" />
+            <Stat value="5" label="Senior partners" blood />
           </div>
         </div>
       </section>

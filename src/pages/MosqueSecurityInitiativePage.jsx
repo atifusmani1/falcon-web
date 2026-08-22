@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Hero from '../components/Hero.jsx';
 import Footer from '../components/Footer.jsx';
+import PartnerLink from '../components/PartnerLink.jsx';
+import { PARTNERS } from '../data/partners.js';
 
 const SUBMISSION_ENDPOINT = '/.netlify/functions/mosque-security-intake';
 
@@ -113,14 +115,26 @@ export default function MosqueSecurityInitiativePage({ setRoute }) {
 
   return (
     <div className="page page-fade-enter">
+      {/* Subtitle copy below is an interim placeholder — the approved
+          initiative subtitle/description paragraph is still pending
+          per the revision checklist's open-items list. Replace once
+          supplied and approved. */}
       <Hero
-        crumbs="Services · 05 Mosque Security Initiative"
-        title="Protecting the places you gather to pray."
+        crumbs="Falcon · Shura Council Partnership"
+        title="Falcon–Shura Council Partnership: Mosque Security Initiative"
         lead="Physical security assessments, hardening grants, and emergency preparedness planning built for the specific threat landscape facing Islamic centers."
         primaryLabel="Discuss a security assessment"
         onPrimary={() => setRoute('contact')}
         onSecondary={() => setRoute('services')}
       />
+
+      <section className="mosque-partner-band">
+        <div className="wrap partners-row">
+          {PARTNERS.map(p => (
+            <PartnerLink key={p.id} href={p.href} name={p.name} logoSrc={p.logoSrc} />
+          ))}
+        </div>
+      </section>
 
       <section className="section">
         <div className="wrap contact-grid">
@@ -263,6 +277,7 @@ export default function MosqueSecurityInitiativePage({ setRoute }) {
                 style={{ alignSelf: 'flex-start' }}>
                 {submitting ? 'Submitting…' : 'Submit interest'}
               </button>
+              <small>By submitting, you agree to our Privacy Policy. Your and your organization's contact details are used only to follow up on this inquiry and are not shared with anyone outside Falcon.</small>
             </form>
           ) : (
             <div className="card card-elevated" role="status" aria-live="polite" style={{ padding: 48 }}>

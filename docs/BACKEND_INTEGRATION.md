@@ -72,3 +72,18 @@ Auth and payment flows are being designed separately and are
 intentionally not scaffolded yet. When their endpoint contracts are
 settled, add them as new modules under `src/services/` and document
 them here.
+
+## Mosque Security Initiative intake — administration
+
+`netlify/functions/mosque-security-intake.mjs` forwards submissions
+from `/mosque-security-initiative` directly into Jotform form
+`262316142653048` (see `.env.example` for the required
+`JOTFORM_API_KEY`). Falcon staff review and export submissions through
+**Jotform's own dashboard** (login-protected, with native CSV/Excel
+export) rather than a custom admin page on this site — this satisfies
+the revision checklist's password-protected review + export
+requirement without adding auth/database infrastructure to a static
+site. If a custom on-site admin view is wanted later, it would need:
+an auth mechanism (e.g. Netlify Identity or a shared password gate), a
+call to the Jotform submissions API to list entries, and an export
+button — treat this as a new, separate scope of work.

@@ -6,13 +6,13 @@ const SERVICE_LINKS = [
   { id: "service-pm", num: "02", label: "General PM" },
   { id: "service-tech", num: "03", label: "Tech Projects" },
   { id: "service-construction", num: "04", label: "Construction PM" },
-  { id: "mosque-security", num: "05", label: "Mosque Security Initiative" },
 ];
 
 const NAV_ITEMS = [
   { id: "services", label: "Services", dropdown: SERVICE_LINKS },
   { id: "about", label: "About" },
   { id: "resources", label: "Client Resources" },
+  { id: "mosque-security", label: "Mosque Security Initiative" },
   { id: "contact", label: "Contact" },
 ];
 
